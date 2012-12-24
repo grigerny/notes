@@ -30,6 +30,7 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 gem "less-rails"
 gem "therubyracer", :require => 'v8'
 gem 'libv8', '~> 3.11.8'
+gem "best_in_place"
 
 
 # To use ActiveModel has_secure_password
