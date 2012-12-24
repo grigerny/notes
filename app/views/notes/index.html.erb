@@ -1,7 +1,27 @@
 <div class="row-fluid">
 	<div class="span10 offset1">
 		<div class="main">
-			test
+			
+			<div class="row-fluid">
+				<div class="span10 offset1">
+
+					<%= render "form" %>
+
+				</div>	
+			</div>		
+			
+			<div class="row-fluid">   
+				<div class="Span6">
+<hr>					
+<% @notes.reverse.each do |note| %>
+<%= link_to image_tag("http://immediatenet.com/t/l?Size=1024x768&URL=#{note.link}"), "#{note.link}" %><br>
+<hr>
+<% end %>
+
+			   </div> 
+			  </div> 
+
+			
 		</div>	
 	</div>		
 </div>			
