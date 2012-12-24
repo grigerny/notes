@@ -28,7 +28,7 @@ end
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem "less-rails"
-gem "therubyracer"
+gem "therubyracer", :require => 'v8'
 
 
 # To use ActiveModel has_secure_password
