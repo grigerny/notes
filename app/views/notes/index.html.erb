@@ -1,12 +1,27 @@
 <div class="row-fluid">
-	<div class="span10 offset1">
-		<div class="main">
-			
-			<div class="row-fluid">
-					<%= render "form" %>	
-			</div>		
+<div class="span10 offset1">	
+	<div class="topbackground">		
+	</div>
+</div>	
+</div>	
 
-<% @notes.reverse.each do |note| %>					
+
+<div class="row-fluid">
+	<div class="span10 offset1">
+		<div class="main">	
+			<div class="span4 offset4">
+			<div class="pagetitle">
+			Web Notes 
+			</div>
+			</div>
+
+	
+			<div class="row-fluid">
+			<%= render "form" %>	
+			</div>		
+			
+
+<% @notes.reverse.first(5).each do |note| %>					
 <div class="fullwrapper">			
 			<div class="row-fluid">							
 			<div class="span3">	
@@ -22,6 +37,7 @@
 				
 				<div class="titlewrapper">
 				<div class="title">
+<%= note.created_at.strftime("%a %b %e") %>	
 <%= best_in_place note, :title, :nil => "Click here to edit title" %>
 				</div>
 				</div>
