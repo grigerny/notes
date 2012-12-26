@@ -25,29 +25,44 @@
 <div class="fullwrapper">			
 			<div class="row-fluid">							
 			<div class="span3">	
+				
 				<center>
-				<div class="imagewrapper">												
+				<div class="imagewrapper">													
 <%= link_to image_tag("http://immediatenet.com/t/l?Size=1024x768&URL=#{note.link}"), "#{note.link}" %>
 				</div>
 				</center>
+							
 			</div> 
-			
+		
+
 			<div class="span9">
 				<div class="titleandcomment">
 				
 				<div class="titlewrapper">
+					
+					<%= link_to note, :method => :delete do %>
+				  	<i class="icon-remove"></i>
+					<% end %>
+					
 				<div class="title">
-<%= note.created_at.strftime("%a %b %e") %>	
-<%= best_in_place note, :title, :nil => "Click here to edit title" %>
+<%= note.created_at.strftime("%a %b %e") %>	|
+<%= best_in_place note, :title, :nil => "Click here to edit title", :html_attrs => {:class => 'titleattributes'} %>
 				</div>
 				</div>
 				
 				<div class="comment">
-						
-<%= best_in_place note, :comment, :nil => "Add a note", :html_attrs => {:class => 'titletextarea'} %>
-							
+<br>
+<div class="commentfont">						
+<p><%= best_in_place note, :comment, :type => "textarea", :nil => "Add a note", :html_attrs => {:class => 'titletextarea'} %></p>
+</div>
+
+	<div class="timeago">
+	Added: <%= distance_of_time_in_words(note.created_at, Time.now, true) %> ago					
+	</div>
+
 				</div>
 				
+		
 				</div>	
 			</div>
 					
