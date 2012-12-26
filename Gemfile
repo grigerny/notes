@@ -31,6 +31,7 @@ gem "less-rails"
 gem "therubyracer", :require => 'v8'
 gem 'libv8', '~> 3.11.8'
 gem "best_in_place"
+gem 'devise'
 
 
 # To use ActiveModel has_secure_password
