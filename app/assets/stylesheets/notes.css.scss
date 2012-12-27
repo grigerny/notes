@@ -4,7 +4,10 @@
 
 
 .signin{
-	color:white;
+	color:#373737;
+	background-color:#F7F6F6;
+	padding:10px;
+	border:3px solid #D7D7D7;
 }
 
 .signing{
@@ -21,6 +24,11 @@
 }
 
 .topbackground{
+	background-color:#373737;
+	height:60px;
+}
+
+.bottombackground{
 	background-color:#373737;
 	height:60px;
 }
@@ -105,4 +113,94 @@
 
 .timeago{
 	color:#999999;
+}
+
+
+.signuptop{
+  padding:10px;
+  text-align:center;
+  font-size:20px !important;
+  font-weight:bold !important;	
+  background-color:#F7F7F7 !important;
+  color:#373737 !important;
+  outline: none !important;
+  border:none !important;
+  box-shadow:none !important;
+  border-radius: 0px !important;
+}
+.usersignupemail{
+  font-size:14px !important;		
+  background-color:#F7F6F6 !important;
+  color:#999999 !important;
+  outline: none !important;
+  border:none !important;
+  box-shadow:none !important;
+  border-radius: 0px !important;
+}
+
+.signupwrapper{
+	text-align:center;
+	-moz-box-shadow: 0 0 5px #888;
+	-webkit-box-shadow: 0 0 5px#888;
+	box-shadow: 0 0 5px #888;
+	border:5px solid #D7D7D7;
+}
+
+.usersignupemail2{
+  width:80%;
+  height:40px !important;	
+  font-size:20px !important;	
+  margin-top:9px;	
+  background-color:white !important;
+  color:#999999 !important;
+  outline: none !important;
+  border:none !important;
+  box-shadow:none !important;
+  border-radius: 0px !important;	
+  -moz-box-shadow: inset 0 0 5px #888 !important;
+  -webkit-box-shadow: inset 0 0 5px#888 !important;
+  box-shadow: inner 0 0 5px #888  !important;
+}
+
+.usersignupsubmit{
+	position:relative;
+	background-color:#00C1F7;
+	border:none;
+	color:white;
+	font-size:20px;
+	border-radius: 0px;	
+	width:80%!important;
+	height:40px;
+	margin: auto!important;
+}
+
+.usersignupsubmit:hover{
+	position:relative;
+	background-color:#00C1F7;
+	border:4px solid #373737;
+	color:#373737;
+	font-size:20px;
+	border-radius: 0px;	
+	width:80%!important;
+	height:40px;
+	margin: auto!important;
+}
+
+.pagetitlesignup{
+	font-size:36px;
+	color:#F7F7F7;
+	text-align:center;
+	padding:20px;
+	font-weight:bold;
+}
+
+.whatis{
+	padding:20px;
+	color:#F7F7F7;
+	font-size:24px;
+	
+}
+
+.signuppage{
+	padding:60px;
 }

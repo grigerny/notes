@@ -1,24 +1,54 @@
-<div class="main">
+<div class="signuppage">
 
-<center>
+<div class="row-fluid">
+	<div class="span4 offset4">
+		<div class="signupwrapper">
+	
+
+						<div class="usersignupemail">
+
+							<div class="row-fluid">
+									<div class="signuptop">
+										Sign up
+									</div>	
+							</div>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+<div class="row-fluid">
+  <%= f.email_field :email, :placeholder => "Email Address", :class => "usersignupemail2" %>
+</div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+<div class="row-fluid">
+  <%= f.password_field :password, :placeholder => "Password", :class => "usersignupemail2" %>
+</div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.submit "Sign up" %></div>
+<div class="row-fluid">
+  <% if devise_mapping.rememberable? -%>
+    <%= f.check_box :remember_me %> Remember me
+  <% end %>
+</div>
+<br>
+<div class="row-fluid">
+<%= f.submit "Go!", :class => "usersignupsubmit" %>
 <% end %>
+</div>
 
 <%= render "devise/shared/links" %>
 
-</center>
+						</div>
+	</div>
+  </div>
+</div>
+
+	
+<div class="row-fluid">
+	<div class="span12 offset3">
+		<div class="whatis">
+			Huh? What is ihasbookmarks.com?
+		</div>	
+	</div>
+</div>		
 
 </div>
