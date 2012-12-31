@@ -1,4 +1,17 @@
 <div class="row-fluid">
+<div class="signin">
+	<% if user_signed_in? %>
+	  <strong>Hello! <%= current_user.email %></strong> 
+	  <%= link_to 'Edit profile', edit_user_registration_path %> |
+	  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+	<% else %>
+	  <%= link_to "Sign up", new_user_registration_path %> |
+	  <%= link_to "Login", new_user_session_path %>
+	<% end %>
+</div>
+</div>
+
+<div class="row-fluid">
 <div class="span10 offset1">	
 	<div class="topbackground">		
 	</div>
@@ -31,7 +44,9 @@
 <%= link_to image_tag("http://immediatenet.com/t/l?Size=1024x768&URL=#{note.link}"), "#{note.link}" %>
 				</div>
 				</center>
-							
+						<script>
+						$(".imagewrapper").attr('title', 'Click to visit this website');	
+						</script>	
 			</div> 
 		
 
@@ -45,7 +60,7 @@
 					<% end %>
 					
 				<div class="title">
-<%= best_in_place note, :title, :nil => "Click here to edit title", :html_attrs => {:class => 'titleattributes'} %> 
+<%= best_in_place note, :title, :nil => "Add title", :html_attrs => {:class => 'titleattributes'} %> 
 				</div>
 				
 				</div>
@@ -53,9 +68,18 @@
 				<div class="comment">	
 	
 <div class="commentfont">
-<%= best_in_place note, :comment, :type => :textarea, :html_attrs => {:class => 'commentbestinplace'}, :display_with => :simple_format %>
+<%= best_in_place note, :comment, :type => :textarea, :nil => "Add note", :html_attrs => {:class => 'commentbestinplace'}, :display_with => :simple_format %>
 </div>
 
+
+
+<script>
+$(document).ready(function()
+{
+	// Match all <A/> links with a title tag and use it as the content (default).
+	$('a[title]').qtip();
+});
+</script>
 	
 <div class="commentbar">
 		

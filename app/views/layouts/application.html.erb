@@ -9,19 +9,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
 
+
 </head>
 <body>
 
-<div class="signin">
-	<% if user_signed_in? %>
-	  <strong>Hello! <%= current_user.email %></strong> 
-	  <%= link_to 'Edit profile', edit_user_registration_path %> |
-	  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-	<% else %>
-	  <%= link_to "Sign up", new_user_registration_path %> |
-	  <%= link_to "Login", new_user_session_path %>
-	<% end %>
-</div>	
+
 
 <p class="notice"><%= notice %></p>	
 <%= yield %>
