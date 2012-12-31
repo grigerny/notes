@@ -98,7 +98,8 @@
 
 .commentfont{
 	background-color:#EEF2FF;
-	font-size:20px;
+	font-size:14px;
+	padding:10px;
 }
 
 .fullwrapper{
@@ -112,7 +113,8 @@
 }
 
 .timeago{
-	color:#999999;
+	float:right;
+	color:white;
 }
 
 
@@ -203,4 +205,15 @@
 
 .signuppage{
 	padding:60px;
+}
+
+.commentbestinplace{
+	max-width:90%;
+	width:95%;
+	color:black;
+}
+
+.commentbar{
+	background-color:#F5603F;
+	height:20px;
 }
