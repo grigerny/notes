@@ -1,23 +1,25 @@
 <div class="row-fluid">
-<div class="signin">
-	<% if user_signed_in? %>
-	  <strong>Hello! <%= current_user.email %></strong> 
-	  <%= link_to 'Edit profile', edit_user_registration_path %> |
-	  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-	<% else %>
-	  <%= link_to "Sign up", new_user_registration_path %> |
-	  <%= link_to "Login", new_user_session_path %>
-	<% end %>
-</div>
-</div>
+<div class="header">
+	
+	<div class="row-fluid">
 
-<div class="row-fluid">
-<div class="span10 offset1">	
-	<div class="topbackground">		
+		<% if user_signed_in? %>
+		  <strong>Hello! <%= current_user.email %></strong> 
+		  <%= link_to 'Edit profile', edit_user_registration_path %> |
+		  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+		<% else %>
+		  <%= link_to "Sign up", new_user_registration_path %> |
+		  <%= link_to "Login", new_user_session_path %>
+		<% end %>
+
 	</div>
-</div>	
-</div>	
 
+</div>	
+</div>
+
+
+
+<p class="notice"><%= notice %></p>	
 
 <div class="row-fluid">
 	<div class="span10 offset1">
@@ -27,7 +29,6 @@
 			ihasbookmarks.com
 			</div>
 			</div>
-
 	
 			<div class="row-fluid">
 			<%= render "form" %>	
@@ -104,5 +105,10 @@ $(document).ready(function()
 	</div>		
 </div>	
 
+<div class="row-fluid">
+<div class="footer">
+	| Made by this guy: @garyriger |
+</div>	
+</div>
 
 			

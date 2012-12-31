@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.header{
+	color:white;
+	background-color:#232C3B;
+	height:40px;
+}
 
 .signin{
 	color:#373737;
@@ -15,16 +20,15 @@
 }
 
 .main{
-	height:1200px;
+	height:100%;
 	background-color:#F7F6F6;
 	-moz-box-shadow: 0 0 1px 1px #888;
 	-webkit-box-shadow: 0 0 1px 1px#888;
-	box-shadow: 0 0 1px 1px #888;
-	border:5px solid #D7D7D7;
+	box-shadow: 0 0 6px 1px #888;	
 }
 
 .topbackground{
-	background-color:#373737;
+	background-color:#232C3B;
 	height:60px;
 }
 
@@ -101,7 +105,6 @@
 }
 
 .fullwrapper{
-	background-color:#F7F6F6;
 	padding:20px;
 }
 
@@ -214,4 +217,12 @@
 .commentbar{
 	background-color:white;
 	height:20px;
+}
+
+.footer{
+	color:white;
+	margin-top:20px;
+	background-color:#232C3B;
+	height:100px;
+	padding:20px;
 }
