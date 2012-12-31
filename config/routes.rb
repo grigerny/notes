@@ -3,6 +3,8 @@ Notes::Application.routes.draw do
   devise_for :users
 
   resources :notes 
+  
+  match '/about' => "notes#about"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
