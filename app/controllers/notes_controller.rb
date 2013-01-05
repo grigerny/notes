@@ -1,5 +1,6 @@
 class NotesController < ApplicationController
   before_filter :authenticate_user!, :except => [:about]
+  include RailsBookmarklet
   
   # GET /notes
   # GET /notes.json
@@ -20,7 +21,7 @@ class NotesController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @note }
-    end
+      end
   end
 
   # GET /notes/new
@@ -44,6 +45,10 @@ class NotesController < ApplicationController
   def create
     @note = Note.new(params[:note])
     @note.user = current_user
+    
+     unless @note.link[/^https?:\/\//]
+        @note.link = 'http://' + @note.link
+      end
 
     respond_to do |format|
       if @note.save
@@ -83,5 +88,6 @@ class NotesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 
 end

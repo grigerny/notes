@@ -1,3 +1,18 @@
 <p id="notice"><%= notice %></p>
 
+<div class="row-fluid">
+	<div class="span10 offset1">
+		<div class="mainshow">
+			
+				<div class="imagewrappershow">													
+<%= link_to image_tag("http://immediatenet.com/t/fs?Size=1024x768&URL=#{@note.link}"), "#{@note.link}" %>
+				</div>
+				<script>
+				$(".imagewrappershow").attr('title', 'Click to visit this website');	
+				</script>
+		</div>
+	</div>
+</div>		
+
+	
 <%= link_to 'Back', notes_path %>

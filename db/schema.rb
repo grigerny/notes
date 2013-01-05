@@ -11,14 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121226002826) do
+ActiveRecord::Schema.define(:version => 20130105230301) do
 
   create_table "notes", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.string   "link"
     t.string   "title"
-    t.string   "comment"
+    t.text     "comment",    :limit => 255
     t.integer  "user_id"
   end
 

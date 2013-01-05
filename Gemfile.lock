@@ -7,6 +7,12 @@ GIT
       execjs
       railties (>= 3.1)
 
+GIT
+  remote: https://github.com/oliverfriedmann/rails-bookmarklet.git
+  revision: 5743821bcd7aa375fbb0e36c9ddc2e72148c4396
+  specs:
+    rails-bookmarklet (0.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -143,6 +149,7 @@ DEPENDENCIES
   libv8 (~> 3.11.8)
   pg
   rails (= 3.2.7)
+  rails-bookmarklet!
   sass-rails (~> 3.2.3)
   sqlite3
   therubyracer

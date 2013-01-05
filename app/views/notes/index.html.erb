@@ -4,7 +4,7 @@
 	<div class="row-fluid">
 
 		<% if user_signed_in? %>
-		  <strong>Hello! <%= current_user.email %></strong> 
+		  Hello! <%= current_user.email %>
 		  <%= link_to 'Edit profile', edit_user_registration_path %> |
 		  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
 		<% else %>
@@ -62,6 +62,7 @@
 					
 				<div class="title">
 <%= best_in_place note, :title, :nil => "Add title", :html_attrs => {:class => 'titleattributes'} %> 
+<%= link_to "Details", note_path(note) %>
 				</div>
 				
 				</div>
