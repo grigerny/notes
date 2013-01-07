@@ -11,5 +11,5 @@ class CommentsController < ApplicationController
       format.html { render action: "new" }
       format.json { render json: @comment.errors, status: :unprocessable_entity }
     end
-      
+  end    
 end
