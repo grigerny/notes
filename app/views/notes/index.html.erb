@@ -62,24 +62,35 @@
 					
 				<div class="title">
 <%= best_in_place note, :title, :nil => "Add title", :html_attrs => {:class => 'titleattributes'} %> 
-<%= link_to "Details", note_path(note) %>
+<div class="detailslink">
+<%= link_to "More..", note_path(note) %>
+</div>
 				</div>
 				
 				</div>
 				
 				<div class="comment">	
 	
+
+<% note.comments.reverse.each do |comment| %>
 <div class="commentfont">
-<% note.comments.each do |comment| %>
-<%= comment.text %><br>
-<% end %>
 
-<%= form_for [note, note.comments.build] do |f| %>
-<%= f.text_area(:text) %>
-<%= f.submit %>
-<% end %>
-
+<%= simple_format comment.text %>
+<div class="timeago">
+<%= time_ago_in_words(comment.created_at) %> ago					
 </div>
+<br><hr>
+</div>
+<% end %>
+
+
+<div class="commentformwrapper">
+<%= form_for [note, note.comments.build] do |f| %>
+<%= f.text_area :text, :class => 'commentform' %>
+<%= f.submit "New Note", :class => 'commentsubmit' %>
+<% end %>
+</div>
+
 
 
 
@@ -92,10 +103,6 @@ $(document).ready(function()
 </script>
 	
 <div class="commentbar">
-		
-	<div class="timeago">
-	<%= note.created_at.strftime("%a %b %e %Y") %>						
-	</div>
 	
 </div>	
 				</div>
