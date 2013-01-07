@@ -2,7 +2,9 @@ Notes::Application.routes.draw do
 
   devise_for :users
 
-  resources :notes 
+  resources :notes do
+    resources :comments
+  end
   
   match '/about' => "notes#about"
 
