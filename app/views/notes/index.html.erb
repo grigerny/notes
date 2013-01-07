@@ -72,6 +72,14 @@
 <div class="commentfont">
 <%= best_in_place note, :comment, :type => :textarea, :nil => "Add note", :html_attrs => {:class => 'commentbestinplace'}, :display_with => :simple_format %>
 
+<% note.comments.each do |comment| %>
+<%= comment.text %><br>
+<% end %>
+
+<%= form_for [note, note.comments.build] do |f| %>
+<%= f.text_area(:text) %>
+<%= f.submit %>
+<% end %>
 
 </div>
 
