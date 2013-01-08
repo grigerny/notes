@@ -40,11 +40,13 @@
 			<div class="row-fluid">							
 			<div class="span3">	
 				
+				
 				<center>
 				<div class="imagewrapper">													
 <%= link_to image_tag("http://immediatenet.com/t/l?Size=1024x768&URL=#{note.link}"), "#{note.link}" %>
 				</div>
 				</center>
+					<a href="https://twitter.com/share?url=https%3A%2F%2F&amp;via=ihasbookmarks&amp;text=<%="Here's a link to:" " " "#{note.link}" %>" class="twitter-share-button">Tweet Link</a>
 						<script>
 						$(".imagewrapper").attr('title', 'Click to visit this website');	
 						</script>	
@@ -72,14 +74,12 @@
 				<div class="comment">	
 	
 
-<% note.comments.reverse.each do |comment| %>
+<% note.comments.each do |comment| %>
 <div class="commentfont">
-
 <%= simple_format comment.text %>
 <div class="timeago">
 <%= time_ago_in_words(comment.created_at) %> ago					
 </div>
-<br><hr>
 </div>
 <% end %>
 
@@ -91,9 +91,6 @@
 <% end %>
 </div>
 
-
-
-
 <script>
 $(document).ready(function()
 {
@@ -103,7 +100,9 @@ $(document).ready(function()
 </script>
 	
 <div class="commentbar">
-	
+	<div class="timeagobottombar">
+	Bookmark added on: <%= note.created_at.strftime('%x') %> 					
+	</div>	
 </div>	
 				</div>
 				

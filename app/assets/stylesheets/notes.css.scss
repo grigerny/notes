@@ -123,10 +123,15 @@
 }
 
 .timeago{
-	float:right;
 	color:#BEC2CA;
+	margin-top:-10px;
+	font-size:12px;
 }
 
+.timeagobottombar{
+	float:right;
+	color:white;	
+}
 
 .signuptop{
   padding:10px;
@@ -224,7 +229,7 @@
 }
 
 .commentbar{
-	background-color:white;
+	background-color:#232C3B;
 	height:20px;
 }
 
