@@ -21,6 +21,8 @@
 
 <p class="notice"><%= notice %></p>	
 
+
+
 <div class="row-fluid">
 	<div class="span10 offset1">
 		<div class="main">	
@@ -63,7 +65,9 @@
 					<% end %>
 					
 				<div class="title">
-<%= best_in_place note, :title, :nil => "Add title", :html_attrs => {:class => 'titleattributes'} %> 
+						<% agent=Mechanize.new %>
+						<% agent.get("#{note.link}") %> 
+						<%= agent.page.title %>
 <div class="detailslink">
 <%= link_to "More..", note_path(note) %>
 </div>
