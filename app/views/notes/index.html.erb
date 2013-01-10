@@ -48,7 +48,6 @@
 <%= link_to image_tag("http://immediatenet.com/t/l?Size=1024x768&URL=#{note.link}"), "#{note.link}" %>
 				</div>
 				</center>
-					<a href="https://twitter.com/share?url=https%3A%2F%2F&amp;via=ihasbookmarks&amp;text=<%="Here's a link to:" " " "#{note.link}" %>" class="twitter-share-button">Tweet Link</a>
 						<script>
 						$(".imagewrapper").attr('title', 'Click to visit this website');	
 						</script>	
@@ -56,25 +55,29 @@
 		
 
 			<div class="span9">
+				
 				<div class="titleandcomment">
 				
-				<div class="titlewrapper">
-					
+				<div class="titlewrapper">			
 					<%= link_to note, :method => :delete do %>
 				  	<i class="icon-remove"></i>
 					<% end %>
+				
 					
 				<div class="title">
+					
 						<% agent=Mechanize.new %>
 						<% agent.get("#{note.link}") %> 
 						<%= agent.page.title %>
+				
+					
 <div class="detailslink">
 <%= link_to "More..", note_path(note) %>
 </div>
 				</div>
 				
 				</div>
-				
+					
 				<div class="comment">	
 	
 
@@ -104,6 +107,9 @@ $(document).ready(function()
 </script>
 	
 <div class="commentbar">
+	<div class="twitterbottombar">
+		<a href="https://twitter.com/share?url=https%3A%2F%2F&amp;via=ihasbookmarks&amp;text=<%="Here's a link to:" " " "#{note.link}" %>" class="twitter-share-button">Tweet Link</a>
+	</div>	
 	<div class="timeagobottombar">
 	Bookmark added on: <%= note.created_at.strftime('%x') %> 					
 	</div>	

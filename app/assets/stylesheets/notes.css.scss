@@ -67,8 +67,11 @@
 	padding:20px;
 }
 
+.imagewrapper{
+	max-width:200px;
+}
 .imagewrapper:hover{
-	border:2px dashed #00C1F7;
+	border:2px solid #00C1F7;
 }
 
 .icon-remove{
@@ -79,6 +82,8 @@
 	font-size:16px;
 	padding:10px;
 }
+
+
 .titleattributes{
 	width:75%;
 }
@@ -89,14 +94,15 @@
 	background-color:#00C1F7;
 }
 
+
 .comment{
 	background-color:#FFFFFF;
 	width:100%;
 	height:100%;
 	color:#363D4A;
-	-moz-box-shadow: 0 0 1px 0px #888;
-	-webkit-box-shadow: 0 0 1px 0px#888;
-	box-shadow: 0 0 1px 0px #363D4A;
+	-moz-box-shadow: inset 0 0 2px #888;
+	-webkit-box-shadow: inset 0 0 2px#888;
+	box-shadow: inner 0 0 2px #888;
 }
 
 .titleandcomment{
@@ -104,9 +110,9 @@
 }
 
 .comment:hover{
-	-moz-box-shadow: inset 0 0 2px #888;
-	-webkit-box-shadow: inset 0 0 3px#888;
-	box-shadow: inner 0 0 2px #888;
+	-moz-box-shadow: 0 0 1px 0px #888;
+	-webkit-box-shadow: 0 0 1px 0px#888;
+	box-shadow: 0 0 1px 0px #363D4A;
 }
 
 .commentfont{
@@ -127,13 +133,15 @@
 .timeago{
 	color:#BEC2CA;
 	margin-top:-10px;
-	font-size:12px;
+	font-size:11px;
+	font-weight:lighter;
 }
 
 .timeagobottombar{
 	float:right;
 	color:black;	
 }
+
 
 .signuptop{
   padding:10px;
@@ -245,3 +253,4 @@
 	height:100px;
 	padding:20px;
 }
+
