@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
         flash[:notice] = 'Comment was successfully created.'
         redirect_to(root_path)
       else
-        flash[:notice] = "Error creating comment: #{@comment.errors}"
+        flash[:notice] = "Comment not added. Your comment can not be blank."
         redirect_to(root_path)
       end
     end

@@ -1,18 +1,67 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row-fluid">
-	<div class="span10 offset1">
+	<div class="span3">
 		<div class="mainshow">
-			
 				<div class="imagewrappershow">													
 <%= link_to image_tag("http://immediatenet.com/t/fs?Size=1024x768&URL=#{@note.link}"), "#{@note.link}" %>
 				</div>
+				
 				<script>
 				$(".imagewrappershow").attr('title', 'Click to visit this website');	
 				</script>
 		</div>
 	</div>
-</div>		
+		
+	<div class="span8">
+		<div class="showside">
 
+				   
+					<div id="jobpostbutton" class="prov">Job Post</div>  	
+			
+					<div id="craigslistbutton" class="prov">Craigslist Post</div>
+					
+					<div id="AB-show" class="prov">Other</div>
+			
+					<br><br>
+				
+				    <div class='clearfix' id='job'>      
+				    Job
+				    </div>
+				
+				
+				   <div class='clearfix' id='craigslist'>
+				   Craigslist
+				   </div>
+				
+				
+				<script>
+				$(function(){
+				                $(document).ready(function () {
+				                    $(".prov").click(function(){
+				                        $(".clearfix").hide();
+				                    });
+
+				                    $('#job').hide();
+				                    $('#jobpostbutton').click(function () {
+				                            $('#job').toggle('slow');
+				                            return false;
+				                    });
+				                    $('#craigslist').hide();
+				                    $('#craigslistbutton').click(function () {
+				                            $('#craigslist').toggle('slow');
+				                            return false;
+				                    });
+				                });
+
+				        });
+				</script>	
+				
+	
+		</div>
+	<div>
+		
+</div>		
+<br>
 	
 <%= link_to 'Back', notes_path %>
