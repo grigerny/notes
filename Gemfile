@@ -34,7 +34,6 @@ gem "best_in_place"
 gem 'devise'
 gem "rails-bookmarklet", :git => "https://github.com/oliverfriedmann/rails-bookmarklet.git"
 gem 'mechanize'
-gem "pismo", "~> 0.7.2"
 
 
 # To use ActiveModel has_secure_password

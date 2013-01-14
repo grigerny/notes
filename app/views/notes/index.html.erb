@@ -71,10 +71,12 @@
 				<div class="titleandcomment">
 				
 				
-				<div class="titlewrapper">			
+				<div class="titlewrapper">		
+					<div class="icon-removewrapper">	
 					<%= link_to note, :method => :delete do %>
 				  	<i class="icon-remove"></i>
 					<% end %>
+					</div>
 				
 					
 				<div class="title">
@@ -86,7 +88,7 @@
 						<%= agent.page.title %>
 						<% else %>
 						<img src="http://g.etfv.co/<%= "#{note.link}" %>" alt="Google" width="20" height="20" />
-						<%= best_in_place note, :title, :nil => "Click here to edit title" %>
+						<%= best_in_place note, :title, :nil => "Title not available, click to edit." %>
 						<% end %>
 					
 			         

@@ -15,30 +15,38 @@
 	background-color:white;
 }
 
+.titleandcomment .commentsubmit{
+	visibility:hidden;
+}
+
+.titleandcomment:hover .commentsubmit{
+	visibility:visible;
+}
+
 .commentsubmit{
-	color:#232C3B;
+	color:#373737;
 	font-size:20px;	
 	width:120px !important;
 	height:40px;
 	margin: auto!important;
 	border:none;
-	background-color:#DDDADA;
-	-moz-box-shadow: 0 0 1px 1px #888;
-	-webkit-box-shadow: 0 0 1px 1px #888;
-	box-shadow: 0 0 1px 1px #888;
+	background-color:#00C1F7;
+	-moz-box-shadow: 0 0 1px 0px #888;
+	-webkit-box-shadow: 0 0 1px 0px #888;
+	box-shadow: 0 0 1px 0px #888;
 	border-radius:3px;
 	float:right;
 
 }
 
 .commentsubmit:hover{
-	color:#232C3B;
+	color:#373737;
 	font-size:20px;	
 	width:120px !important;
 	height:40px;
 	margin: auto!important;
 	border:1px solid #888;
-	background-color:#DDDADA;
+	background-color:#00C1F7;
 	border-radius:3px;
 	-moz-box-shadow: 0 0 2px 1px #888;
 	-webkit-box-shadow: 0 0 2px 1px #888;
