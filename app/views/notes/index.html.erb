@@ -46,9 +46,19 @@
 				
 				
 				<center>
-				<div class="imagewrapper">													
+				<% unless note.link.match (/https:/) %>	
+				<div class="imagewrapper">														
 <%= link_to image_tag("http://immediatenet.com/t/l?Size=1024x768&URL=#{note.link}"), "#{note.link}" %>
 				</div>
+				<% else %>
+				<div class="imagewrapper">	
+<%= link_to image_tag("http://placehold.it/200/232C3B/&text=#{note.link}"), "#{note.link}" %>
+				</div>
+				<% end %>
+				
+			
+
+				
 				</center>
 						<script>
 						$(".imagewrapper").attr('title', 'Click to visit this website');	
@@ -68,11 +78,16 @@
 				
 					
 				<div class="title">
-					
+						<% unless note.link.match (/https:/) %> 
 						<% agent = Mechanize.new %>
 						<% agent.get("#{note.link}") %> 
+				
 						<img src="http://g.etfv.co/<%= "#{note.link}" %>" alt="Google" width="20" height="20" />
 						<%= agent.page.title %>
+						<% else %>
+						<img src="http://g.etfv.co/<%= "#{note.link}" %>" alt="Google" width="20" height="20" />
+						<%= best_in_place note, :title, :nil => "Click here to edit title" %>
+						<% end %>
 					
 			         
 				
