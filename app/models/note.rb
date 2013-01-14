@@ -3,4 +3,5 @@ class Note < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   attr_accessible :link, :title, :comment
   
+
 end

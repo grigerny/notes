@@ -16,29 +16,32 @@
 	<div class="span8">
 		<div class="showside">
 
-				   
-					<div id="jobpostbutton" class="prov">Job Post</div>  	
+				   <div class="row-fluid">
+					<div id="jobpostbutton" class="jquerybutton">Job Post</div>  	
 			
-					<div id="craigslistbutton" class="prov">Craigslist Post</div>
+					<div id="craigslistbutton" class="jquerybutton">Real Estate Post</div>
 					
-					<div id="AB-show" class="prov">Other</div>
-			
-					<br><br>
+					<div id="otherbutton" class="jquerybutton">Other</div>
+					</div>
+	
 				
-				    <div class='clearfix' id='job'>      
+				    <div class='clearfix' id='job'> 
 				    Job
 				    </div>
 				
-				
 				   <div class='clearfix' id='craigslist'>
 				   Craigslist
+				   </div>
+				
+				   <div class='clearfix' id='other'>
+				   Other
 				   </div>
 				
 				
 				<script>
 				$(function(){
 				                $(document).ready(function () {
-				                    $(".prov").click(function(){
+				                    $(".jquerybutton").click(function(){
 				                        $(".clearfix").hide();
 				                    });
 
@@ -52,6 +55,11 @@
 				                            $('#craigslist').toggle('slow');
 				                            return false;
 				                    });
+									 $('#other').hide();
+					                    $('#otherbutton').click(function () {
+					                            $('#other').toggle('slow');
+					                            return false;
+					                    });
 				                });
 
 				        });
