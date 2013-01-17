@@ -1,0 +1,32 @@
+.imagewrapperquickview{
+padding:10px;
+max-width:200px;
+max-height:150px;
+float:left;
+}
+
+.imagewrapperquickview .quickviewlabel{
+	visibility:hidden;
+	position:relative;
+	background-color:rgba(141, 140, 133, 0.500);
+	margin-left:-10px;
+	bottom:40px;
+	left:0px;
+	height:30px;
+}
+
+.imagewrapperquickview:hover .quickviewlabel{
+	visibility:visible;
+	font-size:16px;
+	color:white;
+	position:relative;
+	background-color:rgba(141, 140, 133, 0.700);
+	margin-left:-10px;
+	bottom:40px;
+	left:0px;
+	height:30px;
+}
+
+.quickview-wrapper{
+	padding:10px;	
+}

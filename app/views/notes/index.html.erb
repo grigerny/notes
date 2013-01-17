@@ -1,28 +1,5 @@
-<div class="row-fluid">
-<div class="header">
-	
-	<div class="row-fluid">
-
-		<% if user_signed_in? %>
-		  Hello! <%= current_user.email %>
-		  <%= link_to 'Edit profile', edit_user_registration_path %> |
-		  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-		<% else %>
-		  <%= link_to "Sign up", new_user_registration_path %> |
-		  <%= link_to "Login", new_user_session_path %>
-		<% end %>
-
-	</div>
-
-</div>	
-</div>
-
-
-
 <p class="notice"><%= notice %></p>	
-
-
-
+<%= link_to quickview_path, "quickview" %>
 
 <div class="row-fluid">
 	<div class="span10 offset1">
@@ -52,14 +29,11 @@
 				</div>
 				<% else %>
 				<div class="imagewrapper">	
-<%= link_to image_tag("http://placehold.it/200/232C3B/&text=#{note.link}"), "#{note.link}" %>
+<%= link_to image_tag("http://placehold.it/200x150/232C3B/&text=#{note.link}"), "#{note.link}" %>
 				</div>
 				<% end %>
-				
-			
-
-				
 				</center>
+				
 						<script>
 						$(".imagewrapper").attr('title', 'Click to visit this website');	
 						</script>	
@@ -88,7 +62,7 @@
 						<%= agent.page.title %>
 						<% else %>
 						<img src="http://g.etfv.co/<%= "#{note.link}" %>" alt="Google" width="20" height="20" />
-						<%= best_in_place note, :title, :nil => "Title not available, click to edit." %>
+						<%= best_in_place note, :title, :nil => "#{note.link}" %>
 						<% end %>
 					
 			         

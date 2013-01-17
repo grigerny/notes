@@ -7,6 +7,8 @@ Notes::Application.routes.draw do
   end
   
   match '/about' => "notes#about"
+  
+  match '/quickview' => "notes#quickview"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

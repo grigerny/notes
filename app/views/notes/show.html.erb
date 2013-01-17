@@ -3,9 +3,15 @@
 <div class="row-fluid">
 	<div class="span3">
 		<div class="mainshow">
-				<div class="imagewrappershow">													
-<%= link_to image_tag("http://immediatenet.com/t/fs?Size=1024x768&URL=#{@note.link}"), "#{@note.link}" %>
-				</div>
+					<% unless @note.link.match (/https:/) %>	
+					<div class="imagewrappershow">														
+	<%= link_to image_tag("http://immediatenet.com/t/l?Size=1024x768&URL=#{@note.link}"), "#{@note.link}" %>
+					</div>
+					<% else %>
+					<div class="imagewrappershow">	
+	<%= link_to image_tag("http://placehold.it/200x150/232C3B/&text=#{@note.link}"), "#{@note.link}" %>
+					</div>
+					<% end %>
 				
 				<script>
 				$(".imagewrappershow").attr('title', 'Click to visit this website');	

@@ -1,0 +1,54 @@
+<p class="notice"><%= notice %></p>	
+
+<div class="row-fluid">
+	<div class="span10 offset1">
+		<div class="main">
+			
+			<div class="span6 offset3">
+			<div class="pagetitle">
+			ihasbookmarks.com
+			</div>
+			</div>
+			
+			
+				<div class="row-fluid">
+				<%= render "form" %>	
+				</div>
+				
+				<div class="row-fluid">
+					<div class="span12">
+						<div class="quickview-wrapper">
+						<% current_user.notes.reverse.each do |note| %>
+				
+						<% unless note.link.match (/https:/) %>			
+						<div class="imagewrapperquickview">														
+<%= link_to image_tag("http://immediatenet.com/t/l?Size=1024x768&URL=#{note.link}"), "#{note.link}" %>
+						<div class="quickviewlabel">
+								<% if note.comments.count == 0 %>
+								<%= "No notes" %>	
+								<% else %>
+								<%= pluralize(note.comments.count, "note") %> 
+								<% end %>	
+						</div>	
+						</div>	
+						<% else %>
+						<div class="imagewrapperquickview">	
+<%= link_to image_tag("http://placehold.it/200x150/232C3B/&text=#{note.link}"), "#{note.link}" %>
+						<div class="quickviewlabel">
+						<% if note.comments.count == 0 %>
+						<%= "No notes" %>	
+						<% else %>
+						<%= pluralize(note.comments.count, "note") %> 
+						<% end %>
+						</div>
+						</div>
+						<% end %>
+						
+						<% end %>
+						</div>
+					</div>
+				</div>
+				
+		</div>
+	</div>
+</div>			
