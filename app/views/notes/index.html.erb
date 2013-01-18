@@ -114,7 +114,7 @@ $(document).ready(function()
 		<a href="https://twitter.com/share?url=https%3A%2F%2F&amp;via=ihasbookmarks&amp;text=<%="Here's a link to:" " " "#{note.link}" %>" class="twitter-share-button">Tweet Link</a>
 	</div>	
 	<div class="timeagobottombar">
-	Bookmark added on: <%= note.created_at.strftime('%x') %> 					
+	Bookmark added on: <%= note.created_at.strftime('%x') %> <%= Date.today.to_s %>					
 	</div>	
 </div>	
 				</div>
