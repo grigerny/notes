@@ -1,81 +1,172 @@
-<p id="notice"><%= notice %></p>
+<p class="notice"><%= notice %></p>	
+<%= link_to quickview_path, "quickview" %>
 
 <div class="row-fluid">
-	<div class="span3">
-		<div class="mainshow">
-					<% unless @note.link.match (/https:/) %>	
-					<div class="imagewrappershow">														
-	<%= link_to image_tag("http://immediatenet.com/t/l?Size=1024x768&URL=#{@note.link}"), "#{@note.link}" %>
-					</div>
-					<% else %>
-					<div class="imagewrappershow">	
-	<%= link_to image_tag("http://placehold.it/200x150/232C3B/&text=#{@note.link}"), "#{@note.link}" %>
-					</div>
-					<% end %>
+	
+	<div class="span7 offset1">
+		<div class="main">	
+			<div class="span6 offset3">
+			<div class="pagetitle">
+			ihasbookmarks.com
+			</div>
+			</div>
+	
+			<div class="row-fluid">
+			<%= render "form" %>	
+			</div>		
+			
+
+<% current_user.notes.reverse.first(5).each do |note| %>
+					
+<div class="fullwrapper">			
+			<div class="row-fluid">							
+			<div class="span3">	
 				
-				<script>
-				$(".imagewrappershow").attr('title', 'Click to visit this website');	
-				</script>
-		</div>
+				
+				<center>
+				<% unless note.link.match (/https:/) %>	
+				<div class="imagewrapper">														
+<%= link_to image_tag("http://immediatenet.com/t/l?Size=1024x768&URL=#{note.link}"), "#{note.link}" %>
+				</div>
+				<% else %>
+				<div class="imagewrapper">	
+<%= link_to image_tag("http://placehold.it/200x150/232C3B/&text=#{note.link}"), "#{note.link}" %>
+				</div>
+				<% end %>
+				</center>
+				
+						<script>
+						$(".imagewrapper").attr('title', 'Click to visit this website');	
+						</script>	
+			</div> 
+		
+
+			<div class="span9">
+				
+				<div class="titleandcomment">
+				
+				
+				<div class="titlewrapper">		
+					<div class="icon-removewrapper">	
+					<%= link_to note, :method => :delete do %>
+				  	<i class="icon-remove"></i>
+					<% end %>
+					</div>
+				
+					
+				<div class="title">
+					<img src="http://g.etfv.co/<%= "#{note.link}" %>" alt="Google" width="20" height="20" />  &nbsp 
+			<%= truncate("#{note.link.sub(/^https?\:\/\//, '').sub(/^www./,'')}", :length => 17, :separator => ' ') %> 
+						
+			
+<div class="detailslink">
+<%= link_to "More..", note_path(note) %>
+</div>
+				</div>
+				
+				</div>
+					
+				<div class="comment">
+					
+<div class="row-fluid">
+	<div class="websitedetails">
+<div class="span12">
+	<div class="span12">
+	Added on <%= note.created_at.strftime('%b %d, %Y') %> 
+	<br><br>
+
+<div class="fb-like" data-href= <%= "#{note.link}" %> data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="arial">
+</div>
+<a href="http://pinterest.com/pin/create/button/?url=<%= "#{note.link}" %>&media=<%= "#{note.link}" %> class="pin-it-button" count-layout="none"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
+	<a href="https://twitter.com/share?url=https%3A%2F%2F&amp;via=ihasbookmarks&amp;text=<%="Here's a link to:" " " "#{note.link}" %>" class="twitter-share-button">Tweet Link</a>
+
+	<div id="fb-root">
+	</div>
+	<script>
+	  (function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=140012242803646";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+	</script>
+	</div>
+	<div class="span6">
+
+	</div>
+	</div>
+</div>	
+</div>
+
+
+
+
+
+<script>
+$(document).ready(function()
+{
+	// Match all <A/> links with a title tag and use it as the content (default).
+	$('a[title]').qtip();
+});
+</script>
+	
+
+				</div>
+				
+				
+		
+			</div>
+
+		</div>			
 	</div>
 		
-	<div class="span8">
-		<div class="showside">
+</div>	
 
-				   <div class="row-fluid">
-					<div id="jobpostbutton" class="jquerybutton">Job Post</div>  	
-			
-					<div id="craigslistbutton" class="jquerybutton">Real Estate Post</div>
-					
-					<div id="otherbutton" class="jquerybutton">Other</div>
-					</div>
-	
-				
-				    <div class='clearfix' id='job'> 
-				    Job
-				    </div>
-				
-				   <div class='clearfix' id='craigslist'>
-				   Craigslist
-				   </div>
-				
-				   <div class='clearfix' id='other'>
-				   Other
-				   </div>
-				
-				
-				<script>
-				$(function(){
-				                $(document).ready(function () {
-				                    $(".jquerybutton").click(function(){
-				                        $(".clearfix").hide();
-				                    });
-
-				                    $('#job').hide();
-				                    $('#jobpostbutton').click(function () {
-				                            $('#job').toggle('slow');
-				                            return false;
-				                    });
-				                    $('#craigslist').hide();
-				                    $('#craigslistbutton').click(function () {
-				                            $('#craigslist').toggle('slow');
-				                            return false;
-				                    });
-									 $('#other').hide();
-					                    $('#otherbutton').click(function () {
-					                            $('#other').toggle('slow');
-					                            return false;
-					                    });
-				                });
-
-				        });
-				</script>	
-				
-	
-		</div>
-	<div>
+<% end %>	
 		
-</div>		
-<br>
+		</div>	
+	</div>
 	
-<%= link_to 'Back', notes_path %>
+	<div class="span4">
+		<div class="indexsidebar">
+		
+		<div class="headline">
+		<img src="http://g.etfv.co/<%= "#{@note.link}" %>" alt="Google" width="20" height="20" />  &nbsp <%= link_to truncate("#{@note.link.sub(/^https?\:\/\//, '').sub(/^www./,'')}", :length => 17, :separator => ' '), @note.link %> 
+		</div>
+		<br>
+		<div class="sidebarcomment">
+			<%= form_for(@note) do |f| %>
+			  <% if @note.errors.any? %>
+			    <div id="note_explanation">
+			      <h2><%= pluralize(@note.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+			      <ul>
+			      <% @note.errors.full_messages.each do |msg| %>
+			        <li><%= msg %></li>
+			      <% end %>
+			      </ul>
+			    </div>
+			  <% end %>
+			
+			<%= f.text_area :comment, :class => "sidebartext"  %>
+			<%= f.submit %>
+			<% end %>
+			
+			
+		</div>
+		</div>
+	</div>		
+</div>	
+
+
+
+<div class="row-fluid">
+<div class="footer">
+Made by this guy: <br>
+<a href="https://twitter.com/GaryRiger" class="twitter-follow-button" data-show-count="false">Follow @GaryRiger</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> 	
+<br><br>
+<%= link_to "What is ihasbookmarks.com", about_path %>	
+</div>	
+</div>
