@@ -82,6 +82,7 @@
 }
 
 .pagetitle{
+	font-family: ‘Nunito’, Arial, serif; font-weight: 400;
 	font-size:36px;
 	color:#373737;
 	text-align:center;
@@ -100,6 +101,7 @@
 }
 
 .title{
+	font-family: ‘Nunito’, Arial, serif; font-weight: 400; 
 	font-size:16px;
 	padding:10px;
 }
@@ -124,10 +126,11 @@
 }
 
 .comment{
-	background-color:#FFFFFF;
+	font-family: ‘Nunito’, Arial, serif; font-weight: 400; 
+	background-color:rgba(238, 242, 255, 1.000);
 	width:100%;
 	height:100%;
-	color:#363D4A;
+	color:rgba(153, 152, 159, 1.000);
 	-moz-box-shadow: inset 0 0 2px #888;
 	-webkit-box-shadow: inset 0 0 2px#888;
 	box-shadow: inner 0 0 2px #888;
@@ -135,6 +138,10 @@
 
 .titleandcomment{
 	border:1px solid #D7D7D7;
+}
+
+.websitedetails{
+	padding:10px;
 }
 
 .comment:hover{
