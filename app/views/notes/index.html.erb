@@ -3,7 +3,7 @@
 
 <div class="row-fluid">
 	
-	<div class="span8">
+	<div class="span7 offset1">
 		<div class="main">	
 			<div class="span6 offset3">
 			<div class="pagetitle">
@@ -71,21 +71,26 @@
 <div class="row-fluid">
 	<div class="websitedetails">
 <div class="span12">
-	<div class="span6">
+	<div class="span12">
 	Added on <%= note.created_at.strftime('%b %d, %Y') %> 
 	<br><br>
-	<a href="https://twitter.com/share?url=https%3A%2F%2F&amp;via=ihasbookmarks&amp;text=<%="Here's a link to:" " " "#{note.link}" %>" class="twitter-share-button">Tweet Link</a>
-<div class="fb-like" data-href=""#{note.link}"" data-send="false" data-width="450" data-show-faces="false" data-font="arial"></div>
 
-	<div id="fb-root"></div>
-	<script>(function(d, s, id) {
+<div class="fb-like" data-href= <%= "#{note.link}" %> data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="arial">
+</div>
+<a href="http://pinterest.com/pin/create/button/?url=<%= "#{note.link}" %>&media=<%= "#{note.link}" %> class="pin-it-button" count-layout="none"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
+	<a href="https://twitter.com/share?url=https%3A%2F%2F&amp;via=ihasbookmarks&amp;text=<%="Here's a link to:" " " "#{note.link}" %>" class="twitter-share-button">Tweet Link</a>
+
+	<div id="fb-root">
+	</div>
+	<script>
+	  (function(d, s, id) {
 	  var js, fjs = d.getElementsByTagName(s)[0];
 	  if (d.getElementById(id)) return;
 	  js = d.createElement(s); js.id = id;
 	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=140012242803646";
 	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));</script>
-
+	}(document, 'script', 'facebook-jssdk'));
+	</script>
 	</div>
 	<div class="span6">
 
