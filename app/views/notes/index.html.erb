@@ -54,9 +54,9 @@
 				
 					
 				<div class="title">
-	
+			
 						<img src="http://g.etfv.co/<%= "#{note.link}" %>" alt="Google" width="20" height="20" />
-						<%= best_in_place note, :title, :nil => "#{note.link}" %>
+						<%= best_in_place note, :title, :nil => "#{note.link.sub(/^https?\:\/\//, '').sub(/^www./,'')}" %>
 						
 					
 			         
