@@ -55,8 +55,8 @@
 				
 					
 				<div class="title">
-			
-						<img src="http://g.etfv.co/<%= "#{note.link}" %>" alt="Google" width="20" height="20" />  &nbsp <%= best_in_place note, :title, :nil => "#{note.link.sub(/^https?\:\/\//, '').sub(/^www./,'')}" %>
+					<img src="http://g.etfv.co/<%= "#{note.link}" %>" alt="Google" width="20" height="20" />  &nbsp 
+			<%= truncate("#{note.link.sub(/^https?\:\/\//, '').sub(/^www./,'')}", :length => 17, :separator => ' ') %> 
 						
 			
 <div class="detailslink">
