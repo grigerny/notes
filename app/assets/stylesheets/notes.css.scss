@@ -5,7 +5,7 @@
 .header{
 	color:white;
 	background-color:#232C3B;
-	height:40px;
+	height:60px;
 }
 
 .signin{
@@ -280,8 +280,22 @@
 }
 
 .detailslink{
+	color: black;
+	background-color:rgba(0, 193, 247, 1.000);
 	float:right;
 }
+
+.detailslink:hover{
+	color: black;
+	background-color:rgba(0, 193, 247, 1.000);
+	float:right;
+}
+
+a.detailslink:visited{
+	color:black;
+	background-color:rgba(0, 193, 247, 1.000);
+}
+
 .footer{
 	color:white;
 	margin-top:20px;
