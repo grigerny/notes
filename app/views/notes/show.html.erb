@@ -80,8 +80,7 @@
 <a href="http://pinterest.com/pin/create/button/?url=<%= "#{note.link}" %>&media=<%= "#{note.link}" %> class="pin-it-button" count-layout="none"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
 	<a href="https://twitter.com/share?url=https%3A%2F%2F&amp;via=ihasbookmarks&amp;text=<%="Here's a link to:" " " "#{note.link}" %>" class="twitter-share-button">Tweet Link</a>
 
-	<div id="fb-root">
-	</div>
+	<div id="fb-root"></div>
 	<script>
 	  (function(d, s, id) {
 	  var js, fjs = d.getElementsByTagName(s)[0];
@@ -92,9 +91,7 @@
 	}(document, 'script', 'facebook-jssdk'));
 	</script>
 	</div>
-	<div class="span6">
-
-	</div>
+	
 	</div>
 </div>	
 </div>
@@ -130,12 +127,9 @@ $(document).ready(function()
 	
 	<div class="span4">
 		<div class="indexsidebar">
-		
-		<div class="headline">
-		<img src="http://g.etfv.co/<%= "#{@note.link}" %>" alt="Google" width="20" height="20" />  &nbsp <%= link_to truncate("#{@note.link.sub(/^https?\:\/\//, '').sub(/^www./,'')}", :length => 17, :separator => ' '), @note.link %> 
-		</div>
-		<br>
-		<div class="sidebarcomment">
+
+		<div class="sidebarwrapper">
+					
 			<%= form_for(@note) do |f| %>
 			  <% if @note.errors.any? %>
 			    <div id="note_explanation">
@@ -149,8 +143,14 @@ $(document).ready(function()
 			    </div>
 			  <% end %>
 			
+				
+				<div class="sidebarheadline">
+					<img src="http://g.etfv.co/<%= "#{@note.link}" %>" alt="Google" width="20" height="20" />  &nbsp <%= link_to truncate("#{@note.link.sub(/^https?\:\/\//, '').sub(/^www./,'')}", :length => 17, :separator => ' '), @note.link, class: 'sidebarheadlinelink' %> 
+				</div>
+			
 			<%= f.text_area :comment, :class => "sidebartext"  %>
-			<%= f.submit %>
+			
+			<%= f.submit "Save Note", :class => "sidebarsubmit" %>
 			<% end %>
 			
 			
