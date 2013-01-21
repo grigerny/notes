@@ -70,7 +70,7 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       if @note.update_attributes(params[:note])
-        format.html { redirect_to @note, notice: 'Note was successfully updated.' }
+        format.html { redirect_to @note, notice: 'Your Note was successfully updated.' }
         format.json { respond_with_bip(@note) }
       else
         format.html { render action: "edit" }
@@ -86,7 +86,7 @@ class NotesController < ApplicationController
     @note.destroy
 
     respond_to do |format|
-      format.html { redirect_to notes_url }
+      format.html { redirect_to @note, notice: 'You have deleted your note.' }
       format.json { head :no_content }
     end
   end
