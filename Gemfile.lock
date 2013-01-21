@@ -162,6 +162,7 @@ GEM
     warden (1.2.1)
       rack (>= 1.0)
     webrobots (0.0.13)
+    will_paginate (3.0.3)
 
 PLATFORMS
   ruby
@@ -184,3 +185,4 @@ DEPENDENCIES
   therubyracer
   twitter-bootstrap-rails!
   uglifier (>= 1.0.3)
+  will_paginate (~> 3.0)

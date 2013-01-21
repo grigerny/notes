@@ -6,7 +6,7 @@ class NotesController < ApplicationController
   # GET /notes.json
   def index
     @q = current_user.notes.scoped.search(params[:q])
-    @notes = @q.result(:distinct => true)
+    @notes = @q.result(:distinct => true).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
     
     respond_to do |format|
       format.html # index.html.erb
@@ -19,7 +19,7 @@ class NotesController < ApplicationController
   def show
     @note = Note.find(params[:id])
     @q = current_user.notes.scoped.search(params[:q])
-    @notes = @q.result(:distinct => true)
+    @notes = @q.result(:distinct => true).paginate(:page => params[:page], :per_page => 5).order('created_at DESC')  
     
 
     respond_to do |format|
