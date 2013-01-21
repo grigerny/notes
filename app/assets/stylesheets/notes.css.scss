@@ -22,9 +22,6 @@
 .main{
 	height:100%;
 	background-color:#F7F6F6;
-	-moz-box-shadow: 0 0 1px 1px #888;
-	-webkit-box-shadow: 0 0 1px 1px#888;
-	box-shadow: 0 0 6px 1px #888;	
 }
 
 
@@ -296,13 +293,6 @@ a.detailslink:visited{
 	background-color:rgba(0, 193, 247, 1.000);
 }
 
-.footer{
-	color:white;
-	margin-top:20px;
-	background-color:#232C3B;
-	height:100px;
-	padding:20px;
-}
 
 .jquerybutton{
 	float:left;
