@@ -5,9 +5,9 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
   def index
-    @notes = Note.all
+    @q = current_user.notes.scoped.search(params[:q])
+    @notes = @q.result(:distinct => true)
     
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @notes }
@@ -18,6 +18,8 @@ class NotesController < ApplicationController
   # GET /notes/1.json
   def show
     @note = Note.find(params[:id])
+    @q = current_user.notes.scoped.search(params[:q])
+    @notes = @q.result(:distinct => true)
     
 
     respond_to do |format|
@@ -57,7 +59,7 @@ class NotesController < ApplicationController
         format.html { redirect_to root_url, notice: 'You added a note.' }
         format.json { render json: @note, status: :created, location: @note }
       else
-        format.html { redirect_to root_url, notice: 'Hmm..I cannot process a blank link. Please try again.' }
+        format.html { redirect_to root_url, notice: 'Hmm..I cannot process a blank link. Please try again .' }
         format.json { render json: @note.errors, status: :unprocessable_entity }
       end
     end

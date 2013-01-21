@@ -1,6 +1,17 @@
 <%= js add_gritter(flash[:notice], :image => :notice, :title => "Pow!", :time => 4000) %>
 <%= js extend_gritter(flash[:notice], :position => :bottom_left ) %>
-<%= link_to quickview_path, "quickview" %>
+
+	<div class="row-fluid">
+			<div class="header">
+				<div class="span4">
+					<div class="pagetitle">
+						Ihasbookmarks
+					</div>
+				</div>
+		    </div>
+	</div>
+	
+<%= link_to quickview_path, "quickview" %>	
 
 <div class="row-fluid">
 	
@@ -9,10 +20,20 @@
 		
 			<div class="row-fluid">
 			<%= render "form" %>	
-			</div>		
+			</div>
 			
+				<div class="row-fluid">
+				<div class="span4 offset3">
+				<div class="searchwrapper">	
+				<%= search_form_for @q do |f| %>
+				<%= f.text_field :link_cont, :class => "searchfield", :placeholder => "Search" %>
+				<% end %>
+				</div>
+				</div>
+				</div>
 
-<% current_user.notes.reverse.first(5).each do |note| %>
+				
+<% @notes.reverse.first(5).each do |note| %>
 					
 <div class="fullwrapper">			
 			<div class="row-fluid">							
@@ -114,6 +135,7 @@ $(document).ready(function()
 </div>	
 
 <% end %>	
+
 		
 		</div>	
 	</div>

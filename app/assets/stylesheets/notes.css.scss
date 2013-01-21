@@ -5,7 +5,7 @@
 .header{
 	color:white;
 	background-color:#232C3B;
-	height:60px;
+	height:80px;
 }
 
 .signin{
@@ -34,6 +34,36 @@
 	-webkit-box-shadow: 0 0 1px 1px#888;
 	box-shadow: 0 0 6px 1px #888;	
 	margin-bottom:10px;
+}
+
+.searchfield{
+  width:100%;
+  font-size:16px !important;
+  height:30px !important;
+  background-color:white !important;
+  -moz-box-shadow: inset 0 0 1px #888 !important;
+  -webkit-box-shadow: inset 0 0 1px #888 !important;
+  box-shadow: inner 0 0 1px #888 !important;
+  background-image: image-url("Search.png");
+  background-repeat: no-repeat;
+  background-size: 28px;
+  background-position:right;
+}
+
+.searchfield::-webkit-input-placeholder {
+  color:rgb(153, 153, 153); 
+}
+
+.searchwrapper{
+	margin-left:10px;
+	margin-right:20px;
+	margin-top:20px;
+	margin-bottom:-20px;
+}
+
+.headersignin{
+	float:right;
+	padding:5px;
 }
 
 .showside{
@@ -80,10 +110,10 @@
 }
 
 .pagetitle{
-	font-family: ‘Nunito’, Arial, serif; font-weight: 400;
+	float:left;
+	font-family: 'Nunito';
 	font-size:36px;
-	color:#373737;
-	text-align:center;
+	color:white;
 	padding:20px;
 }
 
@@ -95,7 +125,12 @@
 }
 
 .icon-remove{
+	color:#9b989f;
 	float:right;
+}
+
+.icon-remove:hover{
+	color:red;
 }
 
 .title{
