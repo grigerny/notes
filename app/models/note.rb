@@ -3,5 +3,5 @@ class Note < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   attr_accessible :link, :title, :comment
   
-
+  validates_exclusion_of :link, :in => ["http://"]
 end

@@ -57,7 +57,7 @@ class NotesController < ApplicationController
         format.html { redirect_to root_url, notice: 'You added a note.' }
         format.json { render json: @note, status: :created, location: @note }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to root_url, notice: 'Hmm..I cannot process a blank link. Please try again.' }
         format.json { render json: @note.errors, status: :unprocessable_entity }
       end
     end
