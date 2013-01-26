@@ -83,6 +83,14 @@
 <br>
 
 <%= render 'socialbuttons', :note => note %>
+<br>
+
+Categorize:
+<%= form_for(note) do |f| %>
+<%= f.select :tag_list, options_for_select(["Blog", "News", "Technology", "Social Media", "Online Store", "Finance"]), {}, {:multiple => false, :class => "tagselect", :style => "width:100%;" } %>
+<%= f.submit %>
+<% end %>
+<%= note.tag_list %>
 	
 	</div>
 	</div>

@@ -37,6 +37,7 @@ gem 'mechanize'
 gem "gritter", "1.0.2"
 gem "ransack" 
 gem 'will_paginate', '~> 3.0'
+gem 'acts-as-taggable-on', '~> 2.3.1'
 
 
 # To use ActiveModel has_secure_password
