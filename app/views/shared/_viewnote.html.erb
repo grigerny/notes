@@ -1,0 +1,7 @@
+<%= link_to note_path(note), :class => "detailslink" do %>
+<% if note.comment.present? %>
+<i class="icon-align-justify"></i> View note
+<% else %>
+<i class="icon-align-justify"></i> Add note
+<% end %>
+<% end %>

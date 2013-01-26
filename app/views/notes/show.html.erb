@@ -1,15 +1,7 @@
 <%= js add_gritter(flash[:notice], :image => :notice, :title => "Sweet!", :time => 4000 ) %>
 <%= js extend_gritter(flash[:notice], :position => :bottom_left ) %>
 
-<div class="row-fluid">
-		<div class="header">
-			<div class="span4">
-				<div class="pagetitle">
-					Ihasbookmarks
-				</div>
-			</div>
-	    </div>
-</div>
+<%= render '/shared/websitename' %>
 	
 <%= link_to quickview_path, "quickview" %>
 
@@ -28,9 +20,7 @@
 						
 					<div class="span4 offset3">
 					<div class="searchwrapper">	
-					<%= search_form_for @q do |f| %>
-					<%= f.text_field :link_cont, :class => "searchfield", :placeholder => "Search" %>
-					<% end %>
+				<%= render '/shared/searchform' %>
 					</div>
 					</div>
 						
@@ -45,17 +35,17 @@
 			<div class="span3">	
 				
 				
-				<center>
-				<% unless note.link.match (/https:/) %>	
-				<div class="imagewrapper">														
-<%= link_to image_tag("http://immediatenet.com/t/l?Size=1024x768&URL=#{note.link}"), "#{note.link}" %>
-				</div>
-				<% else %>
-				<div class="imagewrapper">	
-<%= link_to image_tag("http://placehold.it/200x150/232C3B/&text=#{note.link}"), "#{note.link}" %>
-				</div>
-				<% end %>
-				</center>
+						<center>
+						<% unless note.link.match (/https:/) %>	
+						<div class="imagewrapper">														
+						<%= page_thumbnail note %>
+						</div>
+						<% else %>
+						<div class="imagewrapper">	
+						<%= page_placeholder note %>
+						</div>
+						<% end %>
+						</center>
 				
 						<script>
 						$(".imagewrapper").attr('title', 'Click to visit this website');	
@@ -71,17 +61,13 @@
 				<div class="titlewrapper">		
 					
 				<div class="title">
-					<img src="http://g.etfv.co/<%= "#{note.link}" %>" alt="Google" width="20" height="20" />  &nbsp 
+					<img src="http://g.etfv.co/<%= "#{note.link}" %>" alt="Google" width="20" height="20" /> &nbsp 
 		
-<%= truncate_link note %>
+<%= link_to truncate_link(note), note.link %>	
 						
-			<%= link_to note_path(note), :class => "detailslink" do %>
-			<% if note.comment == nil %>
-			<i class="icon-align-justify"></i> Add a note
-			<% else %>
-			<i class="icon-align-justify"></i> View note
-			<% end %>
-			<% end %>
+<div class="timeago">
+<%= created_at_time note %> 
+</div>
 				
 				</div>
 				
@@ -93,14 +79,11 @@
 	<div class="websitedetails">
 <div class="span12">
 	<div class="span12">
-	Added on <%= created_at_time note %> 
-	<br><br>
-	
-	<div class="icon-removewrapper">	
-	<%= link_to note, :method => :delete do %>
-	<i class="icon-remove"></i>
-	<% end %>
-	</div>
+		<div class="row-fluid">
+	<%= render '/shared/removeicon', :note => note %>
+	<%= render '/shared/previewcomment', :note => note %>
+		</div>
+	<br>
 
 <%= render 'socialbuttons', :note => @note %>
 

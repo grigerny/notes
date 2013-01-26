@@ -1,21 +1,13 @@
 <%= js add_gritter(flash[:notice], :image => :notice, :title => "Pow!", :time => 4000) %>
 <%= js extend_gritter(flash[:notice], :position => :bottom_left ) %>
 
-	<div class="row-fluid">
-			<div class="header">
-				<div class="span4">
-					<div class="pagetitle">
-						Ihasbookmarks
-					</div>
-				</div>
-		    </div>
-	</div>
+<%= render '/shared/websitename' %>
 	
 <%= link_to quickview_path, "quickview" %>	
 
 <div class="row-fluid">
 	
-	<div class="span10 offset1">
+	<div class="span7 offset1">
 		<div class="main">	
 		
 			<div class="row-fluid">
@@ -27,9 +19,7 @@
 				
 			<div class="span4 offset3">
 			<div class="searchwrapper">	
-			<%= search_form_for @q do |f| %>
-			<%= f.text_field :link_cont, :class => "searchfield", :placeholder => "Search" %>
-			<% end %>
+			<%= render '/shared/searchform' %>
 			</div>
 			</div>
 				
@@ -42,15 +32,14 @@
 			<div class="row-fluid">							
 			<div class="span3">	
 				
-				
 				<center>
-				<% unless note.link.match (/https:/) %>	
+				<% unless https_link note %>	
 				<div class="imagewrapper">														
-<%= link_to image_tag("http://immediatenet.com/t/l?Size=1024x768&URL=#{note.link}"), "#{note.link}" %>
+				<%= page_thumbnail note %>
 				</div>
 				<% else %>
 				<div class="imagewrapper">	
-<%= link_to image_tag("http://placehold.it/200x150/232C3B/&text=#{note.link}"), "#{note.link}" %>
+				<%= page_placeholder note %>
 				</div>
 				<% end %>
 				</center>
@@ -65,22 +54,16 @@
 				
 				<div class="titleandcomment">
 				
-				
 				<div class="titlewrapper">		
 									
 				<div class="title">
 					<img src="http://g.etfv.co/<%= "#{note.link}" %>" alt="Google" width="20" height="20" />  &nbsp 
-			
-			
-<%= truncate_link note %>
+						
+<%= link_to truncate_link(note), note.link %>
 
-<%= link_to note_path(note), :class => "detailslink" do %>
-<% if note.comment.nil? %>
-<i class="icon-align-justify"></i> Add a note
-<% else %>
-<i class="icon-align-justify"></i> View note
-<% end %>
-<% end %>
+<div class="timeago">
+<%= created_at_time note %> 
+</div>
 
 				</div>
 				
@@ -91,17 +74,15 @@
 <div class="row-fluid">
 	<div class="websitedetails">
 <div class="span12">
-	<div class="span12">
-Added on <%= created_at_time note %> 
-	<br><br>
-
-	<div class="icon-removewrapper">	
-	<%= link_to note, :method => :delete do %>
-	<i class="icon-remove"></i>
-	<% end %>
-	</div>
 	
-	<%= render 'socialbuttons', :note => note %>
+<div class="span12">
+	<div class="row-fluid">
+<%= render '/shared/removeicon', :note => note %>
+<%= render '/shared/previewcomment', :note => note %>
+	</div>
+<br>
+
+<%= render 'socialbuttons', :note => note %>
 	
 	</div>
 	</div>
@@ -141,7 +122,28 @@ $(document).ready(function()
 	</div>
 	
 	<div class="span4">
-		<div class="indexsidebar">
+		<div class="sidebarwrapper">
+				<%= form_for(@user_notes.last) do |f| %>
+				  <% if @user_notes.last.errors.any? %>
+				    <div id="note_explanation">
+				      <h2><%= pluralize(@user_notes.last.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+				      <ul>
+				      <% @user_notes.last.errors.full_messages.each do |msg| %>
+				        <li><%= msg %></li>
+				      <% end %>
+				      </ul>
+				    </div>
+				  <% end %>
+				
+					<div class="sidebarheadline">
+						<img src="http://g.etfv.co/<%= "#{@user_notes.last.link}" %>" alt="Google" width="20" height="20" />  &nbsp <%= link_to truncate("#{@user_notes.last.link.sub(/^https?\:\/\//, '').sub(/^www./,'')}", :length => 17, :separator => ' '), @user_notes.last.link, class: 'sidebarheadlinelink' %> 
+					</div>
+
+				<%= f.text_area :comment, :class => "sidebartext", :placeholder => "Add a note.."  %> 
+
+				<%= f.submit "Save Note", :class => "sidebarsubmit" %>
+				<% end %>
 		</div>
 	</div>		
 </div>	
