@@ -1,5 +1,5 @@
 <% if note.comment.present? %>
-"<%= truncate( note.comment , :length => 40, :separator => ' ') %> ..." 
+"<%= truncate( note.comment , :length => 40, :separator => ' ') %>" 
 <%= link_to note_path(note) do %>
 <i class="icon-pencil"></i>
 <% end 	%>
