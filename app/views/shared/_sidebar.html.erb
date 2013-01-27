@@ -1,23 +1,32 @@
-			
-	<%= form_for(@note) do |f| %>
-	  <% if @note.errors.any? %>
-	    <div id="note_explanation">
-	      <h2><%= pluralize(@note.errors.count, "error") %> prohibited this event from being saved:</h2>
+	<div class="span4">
+		<div class="indexsidebar">
 
-	      <ul>
-	      <% @note.errors.full_messages.each do |msg| %>
-	        <li><%= msg %></li>
-	      <% end %>
-	      </ul>
-	    </div>
-	  <% end %>
-	
-		
-		<div class="sidebarheadline">
-			<img src="http://g.etfv.co/<%= "#{@note.link}" %>" alt="Google" width="20" height="20" />  &nbsp <%= link_to truncate("#{@note.link.sub(/^https?\:\/\//, '').sub(/^www./,'')}", :length => 17, :separator => ' '), @note.link, class: 'sidebarheadlinelink' %> 
+		<div class="sidebarwrapper">
+					
+			<%= form_for(@note) do |f| %>
+			  <% if @note.errors.any? %>
+			    <div id="note_explanation">
+			      <h2><%= pluralize(@note.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+			      <ul>
+			      <% @note.errors.full_messages.each do |msg| %>
+			        <li><%= msg %></li>
+			      <% end %>
+			      </ul>
+			    </div>
+			  <% end %>
+			
+				
+				<div class="sidebarheadline">
+					<img src="http://g.etfv.co/<%= "#{@note.link}" %>" alt="Google" width="20" height="20" />  &nbsp <%= link_to truncate("#{@note.link.sub(/^https?\:\/\//, '').sub(/^www./,'')}", :length => 17, :separator => ' '), @note.link, class: 'sidebarheadlinelink' %> 
+				</div>
+			
+			<%= f.text_area :comment, :class => "sidebartext", :placeholder => "Add a note.."  %> 
+			
+			<%= f.submit "Save Note", :class => "sidebarsubmit" %>
+			<% end %>
+			
+			
 		</div>
-	
-	<%= f.text_area :comment, :class => "sidebartext", :placeholder => "Add a note.."  %> 
-	
-	<%= f.submit "Save Note", :class => "sidebarsubmit" %>
-	<% end %>
+		</div>
+	</div>

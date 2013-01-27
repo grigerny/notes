@@ -28,97 +28,12 @@
 					</div>
 			
 
-<% @notes.each do |note| %>
-					
-<div class="fullwrapper">			
-			<div class="row-fluid">							
-			<div class="span3">	
-				
-				
-						<center>
-						<% unless note.link.match (/https:/) %>	
-						<div class="imagewrapper">														
-						<%= page_thumbnail note %>
-						</div>
-						<% else %>
-						<div class="imagewrapper">	
-						<%= page_placeholder note %>
-						</div>
-						<% end %>
-						</center>
-				
-						<script>
-						$(".imagewrapper").attr('title', 'Click to visit this website');	
-						</script>	
-			</div> 
-		
-
-			<div class="span9">
-				
-				<div class="titleandcomment">
-				
-				
-				<div class="titlewrapper">		
-					
-				<div class="title">
-					<img src="http://g.etfv.co/<%= "#{note.link}" %>" alt="Google" width="20" height="20" /> &nbsp 
-		
-<%= link_to truncate_link(note), note.link %>	
-						
-<div class="timeago">
-<%= created_at_time note %> 
+<div class="noterender">	
+<% @notes.each do |note| %>				
+<%= render "note", :note => note %>
+<% end %>
 </div>
-				
-				</div>
-				
-				</div>
 					
-				<div class="comment">
-					
-<div class="row-fluid">
-	<div class="websitedetails">
-<div class="span12">
-	<div class="span12">
-		<div class="row-fluid">
-	<%= render '/shared/removeicon', :note => note %>
-	<%= render '/shared/previewcomment', :note => note %>
-		</div>
-	<br>
-
-<%= render 'socialbuttons', :note => note %>
-
-	</div>
-	</div>
-</div>	
-</div>
-
-
-
-
-
-<script>
-$(document).ready(function()
-{
-	// Match all <A/> links with a title tag and use it as the content (default).
-	$('a[title]').qtip();
-});
-</script>
-	
-
-				</div>
-				
-				
-		
-			</div>
-
-		</div>			
-	</div>
-		
-</div>	
-
-
-<% end %>	
-
 			<div class="span12">
 				<div class="pagination">
 					<div class="page">
@@ -130,36 +45,5 @@ $(document).ready(function()
 		</div>	
 	</div>
 	
-	<div class="span4">
-		<div class="indexsidebar">
-
-		<div class="sidebarwrapper">
-					
-			<%= form_for(@note) do |f| %>
-			  <% if @note.errors.any? %>
-			    <div id="note_explanation">
-			      <h2><%= pluralize(@note.errors.count, "error") %> prohibited this event from being saved:</h2>
-
-			      <ul>
-			      <% @note.errors.full_messages.each do |msg| %>
-			        <li><%= msg %></li>
-			      <% end %>
-			      </ul>
-			    </div>
-			  <% end %>
-			
-				
-				<div class="sidebarheadline">
-					<img src="http://g.etfv.co/<%= "#{@note.link}" %>" alt="Google" width="20" height="20" />  &nbsp <%= link_to truncate("#{@note.link.sub(/^https?\:\/\//, '').sub(/^www./,'')}", :length => 17, :separator => ' '), @note.link, class: 'sidebarheadlinelink' %> 
-				</div>
-			
-			<%= f.text_area :comment, :class => "sidebartext", :placeholder => "Add a note.."  %> 
-			
-			<%= f.submit "Save Note", :class => "sidebarsubmit" %>
-			<% end %>
-			
-			
-		</div>
-		</div>
-	</div>		
+<%= render "/shared/sidebar", :note => @note %>
 </div>	

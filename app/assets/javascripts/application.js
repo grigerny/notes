@@ -17,5 +17,6 @@
 //= require jquery.purr
 //= require twitter/bootstrap
 //= require gritter
+//= require chosen-jquery
 //= require_tree .
 

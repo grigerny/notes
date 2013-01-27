@@ -1,6 +1,7 @@
 <%= js add_gritter(flash[:notice], :image => :notice, :title => "Pow!", :time => 4000) %>
 <%= js extend_gritter(flash[:notice], :position => :bottom_left ) %>
 
+
 <%= render '/shared/websitename' %>
 	
 <%= link_to quickview_path, "quickview" %>	
@@ -25,98 +26,12 @@
 				
 			</div>	
 			</div>
-				
-<% @notes.each do |note| %>
-					
-<div class="fullwrapper">			
-			<div class="row-fluid">							
-			<div class="span3">	
-				
-				<center>
-				<% unless https_link note %>	
-				<div class="imagewrapper">														
-				<%= page_thumbnail note %>
-				</div>
-				<% else %>
-				<div class="imagewrapper">	
-				<%= page_placeholder note %>
-				</div>
-				<% end %>
-				</center>
-				
-						<script>
-						$(".imagewrapper").attr('title', 'Click to visit this website');	
-						</script>	
-			</div> 
-		
 
-			<div class="span9">
-				
-				<div class="titleandcomment">
-				
-				<div class="titlewrapper">		
-									
-				<div class="title">
-					<img src="http://g.etfv.co/<%= "#{note.link}" %>" alt="Google" width="20" height="20" />  &nbsp 
-						
-<%= link_to truncate_link(note), note.link %>
-
-<div class="timeago">
-<%= created_at_time note %> 
-</div>
-
-				</div>
-				
-				</div>
-					
-				<div class="comment">
-					
-<div class="row-fluid">
-	<div class="websitedetails">
-<div class="span12">
-	
-<div class="span12">
-	<div class="row-fluid">
-<%= render '/shared/removeicon', :note => note %>
-<%= render '/shared/previewcomment', :note => note %>
-	</div>
-<br>
-
-<%= render 'socialbuttons', :note => note %>
-<br>
-
-Categorize:
-<%= form_for(note) do |f| %>
-<%= f.select :tag_list, options_for_select(["Blog", "News", "Technology", "Social Media", "Online Store", "Finance"]), {}, {:multiple => false, :class => "tagselect", :style => "width:100%;" } %>
-<%= f.submit %>
+<div class="noterender">	
+<% @notes.each do |note| %>				
+<%= render "note", :note => note %>
 <% end %>
-<%= note.tag_list %>
-	
-	</div>
-	</div>
-</div>	
 </div>
-
-
-<script>
-$(document).ready(function()
-{
-	// Match all <A/> links with a title tag and use it as the content (default).
-	$('a[title]').qtip();
-});
-</script>
-	
-
-				</div>
-
-			</div>
-
-		</div>			
-	</div>
-		
-</div>	
-
-<% end %>	
 
 <div class="span12">
 	<div class="pagination">

@@ -34,7 +34,7 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @note }
+      format.js
     end
   end
 
@@ -54,13 +54,9 @@ class NotesController < ApplicationController
       end
 
     respond_to do |format|
-      if @note.save
+        @note.save
         format.html { redirect_to root_url, notice: 'You added a note.' }
-        format.json { render json: @note, status: :created, location: @note }
-      else
-        format.html { redirect_to root_url, notice: 'Hmm..I cannot process a blank link. Please try again .' }
-        format.json { render json: @note.errors, status: :unprocessable_entity }
-      end
+        format.js 
     end
   end
 
@@ -88,7 +84,7 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to @note, notice: 'You have deleted your note.' }
-      format.json { head :no_content }
+      format.js 
     end
   end
 

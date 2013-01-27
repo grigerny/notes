@@ -1,0 +1,91 @@
+	
+<div class="<%= "#{note.id}" %>">
+<div class="fullwrapper">			
+			<div class="row-fluid">							
+			<div class="span3">	
+			
+		
+			
+				
+				<%= note.id %>
+				
+				<center>
+				<% unless https_link note %>	
+				<div class="imagewrapper">														
+				<%= page_thumbnail note %>
+				</div>
+				<% else %>
+				<div class="imagewrapper">	
+				<%= page_placeholder note %>
+				</div>
+				<% end %>
+				</center>
+				
+						<script>
+						$(".imagewrapper").attr('title', 'Click to visit this website');	
+						</script>	
+			</div> 
+		
+
+			<div class="span9">
+				
+				<div class="titleandcomment">
+				
+				<div class="titlewrapper">		
+									
+				<div class="title">
+					<img src="http://g.etfv.co/<%= "#{note.link}" %>" alt="Google" width="20" height="20" />  &nbsp 
+						
+<%= link_to truncate_link(note), note.link %>
+
+<div class="timeago">
+<%= created_at_time note %> 
+</div>
+
+				</div>
+				
+				</div>
+					
+				<div class="comment">
+					
+<div class="row-fluid">
+	<div class="websitedetails">
+<div class="span12">
+	
+<div class="span12">
+	<div class="row-fluid">
+<%= render '/shared/removeicon', :note => note %>
+<%= render '/shared/previewcomment', :note => note %>
+	</div>
+<br>
+
+<%= render 'socialbuttons', :note => note %>
+<br>
+
+<div class="row-fluid">
+
+<%= best_in_place note, :tag_list, :nil => "Select Category", :type => :select, :collection => [[1, "Spain"], [2, "Italy"], [3, "Germany"], [4, "France"]], :html_attrs => { :class => "tagselect" } %>
+	
+<%= form_for(note) do |f| %>
+<%= f.select :tag_list, options_for_select([["Select Category", ""], "Cell", "Work", "Office", "Home", "Other"]), {}, :class => "tagselect", remote: true %>
+<br>
+<% end %>
+</div>
+
+<%= note.tag_list %>
+	
+	</div>
+	</div>
+</div>	
+</div>
+	
+
+				</div>
+
+			</div>
+
+		</div>			
+	</div>
+		
+</div>	
+</div>

@@ -51,6 +51,10 @@ GEM
       jquery-rails
       rails (~> 3.1)
     builder (3.0.4)
+    chosen-rails (0.9.11.2)
+      coffee-rails (>= 3.2)
+      railties (>= 3.0)
+      sass-rails (>= 3.2)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -172,6 +176,7 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on (~> 2.3.1)
   best_in_place
+  chosen-rails
   coffee-rails (~> 3.2.1)
   devise
   gritter (= 1.0.2)
