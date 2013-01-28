@@ -10,7 +10,7 @@ class NotesController < ApplicationController
     @user_notes = current_user.notes
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @notes }
+      format.js
     end
   end
 
@@ -23,7 +23,7 @@ class NotesController < ApplicationController
   
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @note }
+      format.js
       end
   end
 
@@ -67,7 +67,7 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       if @note.update_attributes(params[:note])
-        format.html { redirect_to @note, notice: 'Your Note was successfully updated.' }
+        format.html { redirect_to root_url, notice: 'Your Note was successfully updated.' }
         format.json { respond_with_bip(@note) }
       else
         format.html { render action: "edit" }
