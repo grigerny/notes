@@ -1,1 +1,2 @@
-$('.<%= @note.id %>').remove();
+$('.<%= @note.id %>').fadeOut("slow");
+$('.sidebarwrapper').filter(":contains(<%= truncate("#{@note.link.sub(/^https?\:\/\//, '').sub(/^www./,'')}", :length => 17, :separator => ' ') %>)").fadeOut("slow");
