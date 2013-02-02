@@ -1,10 +1,14 @@
 <% if note.comment.present? %>
-"<%= truncate( note.comment , :length => 40, :separator => ' ') %>" 
 <%= link_to note_path(note), :remote => true, :id => "show_link" do %>
+<div class="icon-pencil-wrapper">
 <i class="icon-pencil"></i>
+"<%= truncate( note.comment , :length => 20, :separator => ' ') %>" 
+</div>
 <% end 	%>
 <% else %>
 <%= link_to note_path(note), :remote => true, :id => "show_link" do %>
+<div class="add-note-link">
 <i class="icon-edit"></i> Add note
+</div>
 <% end %>
 <% end %>
