@@ -7,7 +7,30 @@
 
 <div class="row-fluid">
 	
-	<div class="span7 offset1">
+	<div class="span3">
+		<div class="main">
+			<div class="row-fluid">
+				<div class="left-side-title">
+					The Tag Bar
+				</div>
+				
+				<% current_user.notes.tag_counts.sort { |x, y| x.name <=> y.name }.each do |tag| %>
+				<%= tag %> 
+				<% current_user.notes.each do |note|%>
+				<% if %>
+				<% note.tag_list.to_s == tag.name.to_s %>
+				<br>
+				<%= link_to truncate_link(note), note.link %>
+				<% end %>
+				<% end %><br><br>
+				<% end %>
+
+	
+			</div>
+		</div>
+	</div>	
+	
+	<div class="span6">
 		<div class="main">	
 		
 			<div class="row-fluid">
@@ -43,15 +66,12 @@
 		</div>	
 	</div>
 	
-	<div class="span4">
+<div class="span2">
 
- <div class="sideformwrapper">
- <%= render "sideform" %>
- </div>	
-
-	</div>		
+<div class="sideformwrapper">
+<%= render "sideform" %>
 </div>	
 
-
-
-			
+</div>	
+	
+</div>				
