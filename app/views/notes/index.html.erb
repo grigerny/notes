@@ -3,26 +3,32 @@
 
 <%= render '/shared/websitename' %>
 	
-<%= link_to quickview_path, "quickview" %>	
 
 <div class="row-fluid">
 	
 	<div class="span3">
 		<div class="main">
 			<div class="row-fluid">
-				<div class="left-side-title">
-					The Tag Bar
-				</div>
+		<br><br>
 				
 				<% current_user.notes.tag_counts.sort { |x, y| x.name <=> y.name }.each do |tag| %>
-				<%= tag %> 
+				<center>
+				<div class="tag-name-left">
+				<%= "#" %><%= tag.name.titlecase %> 
+				</div>
+				</center>
 				<% current_user.notes.each do |note|%>
 				<% if %>
 				<% note.tag_list.to_s == tag.name.to_s %>
+				<center>
+				<div class="tag-link-left">
+					<img src="http://g.etfv.co/<%= "#{note.link}" %>" alt="Google" width="20" height="20" />  &nbsp 
+				<%= link_to truncate_link(note), note.link, :class => "tag-link-left" %>
+				</div>
+				</center>
 				<br>
-				<%= link_to truncate_link(note), note.link %>
 				<% end %>
-				<% end %><br><br>
+				<% end %>
 				<% end %>
 
 	

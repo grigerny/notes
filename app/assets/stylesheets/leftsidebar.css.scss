@@ -1,7 +1,41 @@
 .left-side-title{
 	padding:20px;
-	color:white;
-	background-color:#232C3B;
+	color:#101010;
+	background-color:#F7F6F6;
 	font-family:'Helvetica';
 	font-size:36px;
+	text-align:center;
 }
+
+.tag-name-left{
+	padding:10px;
+	color:black;
+	font-size:18px;
+	background-color:#EAEAEA;
+	border:1px solid #D7D7D7;
+	width:50%;
+}
+
+.tag-link-left{
+	background-color:#0697EA;
+	text-align:center;
+	width:50%;
+	padding:10px;
+	font-size:16px;
+}
+
+a.tag-link-left{
+	color:white;
+}
+
+a.tag-link-left:hover{
+	color:#C4BFAC;
+	background-color:#0697EA;
+}
+
+a.tag-link-left:visited{
+	color:white;
+	background-color:#0697EA;
+}
+
+
