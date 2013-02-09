@@ -1,0 +1,6 @@
+
+<% if @user_notes.last.present?%>
+<%= form_for @user_notes.last do |f| %>
+<%= f.text_field :tag_list, :class => "tagselect", :placeholder => "#tag", remote: true %>
+<% end %>
+<% end %>
