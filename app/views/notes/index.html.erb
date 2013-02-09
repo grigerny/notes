@@ -1,83 +1,117 @@
 <%= js add_gritter(flash[:notice], :image => :notice, :title => "Pow!", :time => 4000) %>
 <%= js extend_gritter(flash[:notice], :position => :bottom_left ) %>
 
-<%= render '/shared/websitename' %>
-	
+<%= render '/shared/websitename' %>	
 
-<div class="row-fluid">
-	
-	<div class="span3">
+<!-- Start of index page  -->
+<div class="row-fluid">	
+	<div class="span12">
 		<div class="main">
-			<div class="row-fluid">
-		<br><br>
-				
-				<% current_user.notes.tag_counts.sort { |x, y| x.name <=> y.name }.each do |tag| %>
-				<center>
-				<div class="tag-name-left">
-				<%= "#" %><%= tag.name.titlecase %> 
-				</div>
-				</center>
-				<% current_user.notes.each do |note|%>
-				<% if %>
-				<% note.tag_list.to_s == tag.name.to_s %>
-				<center>
-				<div class="tag-link-left">
-					<img src="http://g.etfv.co/<%= "#{note.link}" %>" alt="Google" width="20" height="20" />  &nbsp 
-				<%= link_to truncate_link(note), note.link, :class => "tag-link-left" %>
-				</div>
-				</center>
-				<br>
-				<% end %>
-				<% end %>
-				<% end %>
 
 	
-			</div>
-		</div>
-	</div>	
-	
-	<div class="span6">
-		<div class="main">	
+					<!-- Start of form to add a website	-->
+					<div class="row-fluid">
+						<%= render "form" %>	
+					</div>
+					<!-- End of form to add a website -->
 		
-			<div class="row-fluid">
-			<%= render "form" %>	
-			</div>
+					<!-- Start of search bar -->
+							<div class="row-fluid">
+									<div class="span6 offset3">
+										<div class="searchwrapper">	
+										<%= render '/shared/searchform' %>
+										</div>
+									</div>
+							</div>
+					<!-- End of search bar -->
+					<br><br>
+					
+					<!-- Starts note  -->
+					<div class="row-fluid">			
+							<div class="span12">
+								<div class="noterender">
+									<% @notes.each do |note| %>				
+									<%= render "note", :note => note %>
+									<% end %>
+								</div>
+							</div>
+					</div>
+					<!-- End note -->
+					
+					<!-- Start of pagination -->
+					<div class="row-fluid">
+					<div class="span12">
+						<div class="pagination">
+							<div class="page">
+	    					<%= will_paginate @notes, :container => false, :page_links => false %>
+							</div>
+						</div>
+					</div>
+					</div>
+					<!-- End of pagination -->
+				
+					<!--  Start of Notepad Section-->
+				
+					<div class="row-fluid">
+					<div class="span6 offset3">
+						<div class="sideformwrapper">
+						<%= render "sideform" %>
+						</div>	
+					</div>
+					</div>
+				
+					<!-- End of Notepad Section -->
 			
-			<div class="row-fluid">
-			<div class="span12">	
-				
-			<div class="span4 offset3">
-			<div class="searchwrapper">	
-			<%= render '/shared/searchform' %>
-			</div>
-			</div>
-				
-			</div>	
-			</div>
 
-<div class="noterender">	
-<% @notes.each do |note| %>				
-<%= render "note", :note => note %>
-<% end %>
-</div>
+<!-- Start of tag section -->
+		<div class="row-fluid">
+		<div class="span3">
 
-<div class="span12">
-	<div class="pagination">
-		<div class="page">
-	    <%= will_paginate @notes, :container => false, :page_links => false %>
+	
+		<!-- Start of "If the current user has no tags, then display the following"  -->
+
+		<% if current_user.notes.tag_counts.present? == false %>
+		<div class="tag-name-left">
+		#Add a tag
 		</div>
-	</div>
-</div>
-		
+		<div class="tag-link-left">
+		It will look like this :)
 		</div>	
+		<% end %>
+		
+		<!-- End of "If the current user has no tags, then display the following" -->
+		
+		<!-- Main Tag Section -->
+		
+			
+		<% current_user.notes.tag_counts.sort { |x, y| x.name <=> y.name }.each do |tag| %>
+	
+		<div class="tag-name-left">
+		<%= "#" + tag.name.upcase %> 
+		</div>
+
+		<% current_user.notes.each do |note|%>
+		<% if %>
+		<% note.tag_list.to_s == tag.name.to_s %>
+
+
+		<div class="tag-link-left">
+			<img src="http://g.etfv.co/<%= "#{note.link}" %>" alt="Google" width="20" height="20" />  &nbsp 
+		<%= link_to truncate_link(note), note.link, :class => "tag-link-left" %>
+		</div>	
+
+
+		<% end %>
+		<% end %>
+		<br>
+		<% end %>
+		
+		</div>
+		</div>	
+<!-- End of Main Tag Section -->
+		
+<!-- End of Tag Section -->
+		</div>		
 	</div>
-	
-<div class="span2">
-
-<div class="sideformwrapper">
-<%= render "sideform" %>
-</div>	
-
-</div>	
-	
-</div>				
+</div>		
+<!-- End of index page 	 -->

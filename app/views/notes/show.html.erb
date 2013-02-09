@@ -3,22 +3,20 @@
 
 <%= render '/shared/websitename' %>
 	
-<%= link_to quickview_path, "quickview" %>
-
 <div class="row-fluid">
-	
-	<div class="span7 offset1">
+	<div class="span10 offset1">
 		<div class="main">	
 	
 			<div class="row-fluid">
 			<%= render "form" %>	
 			</div>		
-		
+				
+					<div class="span7">
 			
 					<div class="row-fluid">
 					<div class="span12">	
 						
-					<div class="span4 offset3">
+					<div class="span12">
 					<div class="searchwrapper">	
 				<%= render '/shared/searchform' %>
 					</div>
@@ -28,10 +26,16 @@
 					</div>
 			
 
-<div class="noterender">	
-<% @notes.each do |note| %>				
-<%= render "note", :note => note %>
-<% end %>
+<div class="noterender">		
+<%= render "note", :note => @note %>
+</div>
+
+			</div>
+
+<div class="row-fluid">
+	<div class="span7">
+<%= render "/shared/sidebar" %>
+	</div>
 </div>
 					
 			<div class="span12">
@@ -44,7 +48,6 @@
 		
 		</div>	
 	</div>
-	
-<%= render "/shared/sidebar" %>
+
 
 </div>	

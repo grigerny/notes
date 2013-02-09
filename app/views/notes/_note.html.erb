@@ -1,68 +1,47 @@
-<div class="<%= "#{note.id}" %>">
-<div class="fullwrapper">			
-
-<div class="row-fluid">							
-	<div class="span3">	
-				
-				<center>
-				<% unless https_link note %>	
-				<div class="imagewrapper">														
-				<%= page_thumbnail note %>
-				</div>
-				<% else %>
-				<div class="imagewrapper">	
-				<%= page_placeholder note %>
-				</div>
-				<% end %>
-				</center>
-				
-						<script>
-						$(".imagewrapper").attr('title', 'Click to visit this website');	
-						</script>	
-			</div> 
-		
-	<div class="span9">
-				
-	<div class="titleandcomment">
-				
-	<div class="titlewrapper">
-									
-				<div class="title">
-					<img src="http://g.etfv.co/<%= "#{note.link}" %>" alt="Google" width="20" height="20" />  &nbsp 
-						
-<%= link_to truncate_link(note), note.link %>
-
-<div class="timeago">
-<%= created_at_time note %> 
-</div>
-
-				</div>
-				
-				</div>
-				
-	<div class="comment">
+	<div class="notewrapper">
+		<div class="<%= "#{note.id}" %>">
+					<div class="row-fluid">
+				<div class="span12">
 					
-	<div class="row-fluid">	
-	
-	<div class="commentwrapper">	
-	<div class="tag-select-wrapper">
-	<%= form_for(note) do |f| %>
-	<%= f.text_field :tag_list, :class => "tagselect", :placeholder => "#", remote: true %>
-	<% end %>
-	</div>
-	
-	<%= render '/shared/previewcomment', :note => note %>
-	<%= render '/shared/removeicon', :note => note %>
-	</div>
-	</div>
+							
+							<!-- Starts the heading (title) -->
+							
+							<div class="title-font">
+							<img src="http://g.etfv.co/<%= "#{note.link}" %>" alt="Google" width="20" height="20" />  &nbsp 
 
-	</div>
-	
-	</div>
-	
+								<%= link_to note.link, :class => "note-title-class" do %>
+								<% truncate_link(note) %>
+								<% end %>
+
+								<div class="timeago">
+								<%= created_at_time note %> 
+								</div>
+								
+							</div>	
+							
+							<!--  Ends the heading (title) -->
+							
+										<center>
+										<% unless https_link note %>	
+										<div class="imagewrapper">														
+										<%= page_thumbnail note %>
+										</div>
+										<% else %>
+										<div class="imagewrapper">
+										<%= page_placeholder note %>
+										</div>
+										<% end %>
+										</center>
+
+										<script>
+										$(".imagewrapper").attr('title', 'Click to visit this website');	
+										</script>
+				   
+				
+				<%= render '/shared/removeicon', :note => note %>
+				 <%= render '/shared/previewcomment', :note => note %>
+			
+			</div>
+		</div>
 	</div>	
-
-</div>	
-
-</div>	
 </div>

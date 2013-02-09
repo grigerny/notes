@@ -2,22 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.header{
-	color:white;
-	background-color:#232C3B;
-	height:80px;
-}
-
-.signin{
-	color:#373737;
-	background-color:#F7F6F6;
-	padding:10px;
-	border:3px solid #D7D7D7;
-}
-
-.signing{
-	color:white;
-}
 
 .main{
 	min-height:1430px;
@@ -61,7 +45,7 @@
 .searchwrapper{
 	margin-left:10px;
 	margin-right:20px;
-	margin-top:20px;
+	margin-top:10px;
 	margin-bottom:-20px;
 }
 
@@ -112,26 +96,13 @@
 	background-color:ghostwhite !important;
 }
 
-.pagetitle{
-	float:left;
-	font-family: 'Nunito';
-	font-size:36px;
-	color:white;
-	padding:20px;
-}
 
 .imagewrapper{
-	max-width:200px;
-}
-.imagewrapper:hover{
-	border:2px solid #00C1F7;
+	width:100%;	
 }
 
 .icon-remove{
-	padding:10px;
 	color:#9b989f;
-	float:right;
-	
 }
 
 .icon-remove:hover{
@@ -139,48 +110,53 @@
 	text-decoration:none;
 }
 
-.title{
-	font-family: ‘Nunito’, Arial, serif; font-weight: 400; 
+.title-font{
+	font-family: 'Helvetica', Arial, serif; font-weight: 400; 
 	font-size:16px;
-	padding:10px;
-	border-bottom:1px solid #D7D7D7;
 }
 
+a.note-title-class:hover{
+	background-color:#EAEAEA;
+	color:#666666;
+}
 
 .titleattributes{
 	width:75%;
 }
 
-.titlewrapper{
-	width:100%;
+.notewrapper{
+	margin-left:50px;
+	padding:20px;
+	width:25%;
+	float:left;
 	color:#373737;
-	background-color:#EAEAEA;
+	background-color:white;
+	border:1px solid #D7D7D7;
+	margin-bottom:10px;
+	border-radius:5px;
+	-moz-box-shadow: 0 0 5px #888;
+	-webkit-box-shadow: 0 0 5px black;
+	box-shadow: 0 10px 2px #232C3B;
 }
 
+.noterender{
+	width:100;
+}
 .comment{
 	font-family: 'Helvetica', Arial, serif; font-weight: 400; 
-	background-color:#FFFFFF;
-	width:100%;
+	background-color:white;
 	height:38px;
 	color:#999;
+	
 }
 
 .commentwrapper{
 	margin-top:-20px;
 }
 
-.titleandcomment{
-	border:1px solid #D7D7D7;
-}
-
-
 .commentfont{
 	background-color:#FFFDE6;
 	font-size:14px;
-}
-
-.fullwrapper{
-	padding:20px;
 }
 
 .titletextarea{
@@ -340,47 +316,53 @@ a.detailslink:visited{
 }
 
 .tagselect{
+	text-align:center;
 	float:left;
-	width:20%;
-	background-color:#0697EA !important;
-	color:white !important;
+	width:50%;
+	background-color:white !important;
+	color:black !important;
 	font-size:14px;
 	height:30px !important;
 	outline: none !important;
 	border-radius:0px !important;
 	border:none !important;
-	-moz-box-shadow: inset 0 0 4px #888 !important;
-  	-webkit-box-shadow: inset 0 0 4px #888 !important;
-  	box-shadow: inner 0 0 4px #888 !important;
+	outline: none !important;
+	box-shadow:none !important;
+
 }	
 
 .tagselect::-webkit-input-placeholder {
-   color: white;
+   color: #9B989F;
 }
 
 .tagselect:-moz-placeholder { /* Firefox 18- */
-   color: white;  
+   color: #9B989F;  
 }
 
 .tagselect::-moz-placeholder {  /* Firefox 19+ */
-   color: white;  
+   color: #9B989F;  
 }
 
 .tagselect:-ms-input-placeholder {  
-   color: white;  
+   color: #9B989F;  
 }
 
 
 .add-note-link{
-	float:left;
-	padding:10px;
+	float:right;
 	color:#999;
 	font-size:14px;
 }
 
+.add-note-link:hover{
+	float:right;
+	color:#999;
+	font-size:14px;
+	text-decoration:underline;
+}
+
 .icon-pencil-wrapper{
-	float:left;
-	padding:10px;
+	float:right;
 	color:#999;
 	font-size:14px;
 }
