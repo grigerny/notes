@@ -1,0 +1,14 @@
+	<center>
+	<% unless https_link @note %>	
+	<div class="imagewrapper">														
+	<%= page_thumbnail @note %>
+	</div>
+	<% else %>
+	<div class="imagewrapper">
+	<%= page_placeholder @note %>
+	</div>
+	<% end %>
+	</center>
+	
+	<%= render '/shared/removeicon', :note => @note %>
+	 <%= render '/shared/previewcomment', :note => @note %>

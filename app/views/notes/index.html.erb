@@ -7,24 +7,24 @@
 <div class="row-fluid">	
 	<div class="span12">
 		<div class="main">
+			
+				<!-- Start of form to add a website	-->
+				<div class="row-fluid">
+					<%= render "form" %>	
+				</div>
+				<!-- End of form to add a website -->
+			
 
-	
-					<!-- Start of form to add a website	-->
+			<!-- Start of search bar -->
 					<div class="row-fluid">
-						<%= render "form" %>	
-					</div>
-					<!-- End of form to add a website -->
-		
-					<!-- Start of search bar -->
-							<div class="row-fluid">
-									<div class="span6 offset3">
-										<div class="searchwrapper">	
-										<%= render '/shared/searchform' %>
-										</div>
-									</div>
+							<div class="span6 offset3">
+								<div class="searchwrapper">	
+								<%= render '/shared/searchform' %>
+								</div>
 							</div>
-					<!-- End of search bar -->
-					<br><br>
+					</div>
+			<!-- End of search bar -->
+			<br>
 					
 					<!-- Starts note  -->
 					<div class="row-fluid">			
@@ -50,73 +50,39 @@
 					</div>
 					<!-- End of pagination -->
 					
+					<!-- Start of tagform -->
+					
+								<div class="row-fluid">
+								<div class="span12">
+									<div class="tagformwrapper-index">
+										<%= render "tagformindex" %>
+									</div>
+								</div>
+								</div>
+								
+					<!-- End of tagform -->
+								
+					<!-- Start of taglist -->
+						<div class="row-fluid">
+							
+							<div class="span6">
+									<div class="tagindex">
+										<%= render "shared/taglist" %>
+									</div>
+							</div>
+						<!-- End of taglist -->
 			
-						<div class="tagformwrapper-index">
-							<%= render "tagformindex" %>
-						</div>
-
-					<!--  Start of Notepad Section-->
-				
-					<div class="row-fluid">
-					<div class="span6 offset3">
-						<div class="sideformwrapper">
-						<%= render "sideform" %>
-						</div>	
-					</div>
-					</div>
-				
+		
+					<!--  Start of Notepad Section-->		
+							<div class="span6">
+									<div class="sideformwrapper">
+										<%= render "sideform" %>
+									</div>	
+							</div>
+						
+					</div>	
 					<!-- End of Notepad Section -->
-			
-
-<!-- Start of tag section -->
-		<div class="row-fluid">
-		<div class="span3">
-
-	
-		<!-- Start of "If the current user has no tags, then display the following"  -->
-
-		<% if current_user.notes.tag_counts.present? == false %>
-		<div class="tag-name-left">
-		#Add a tag
-		</div>
-		<div class="tag-link-left">
-		It will look like this :)
 		</div>	
-		<% end %>
-		
-		<!-- End of "If the current user has no tags, then display the following" -->
-		
-		<!-- Main Tag Section -->
-		
-			
-		<% current_user.notes.tag_counts.sort { |x, y| x.name <=> y.name }.each do |tag| %>
-	
-		<div class="tag-name-left">
-		<%= "#" + tag.name.upcase %> 
-		</div>
-
-		<% current_user.notes.each do |note|%>
-		<% if %>
-		<% note.tag_list.to_s == tag.name.to_s %>
-
-
-		<div class="tag-link-left">
-			<img src="http://g.etfv.co/<%= "#{note.link}" %>" alt="Google" width="20" height="20" />  &nbsp 
-		<%= link_to truncate_link(note), note.link, :class => "tag-link-left" %>
-		</div>	
-
-
-		<% end %>
-		<% end %>
-		<br>
-		<% end %>
-		
-		</div>
-		</div>	
-<!-- End of Main Tag Section -->
-		
-<!-- End of Tag Section -->
-		</div>		
 	</div>
-</div>		
+</div>	
 <!-- End of index page 	 -->
