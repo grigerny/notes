@@ -4,7 +4,7 @@
 
 
 .main{
-	min-height:1430px;
+	min-height:auto;
 	height:100%;
 	background-color:#F7F6F6;
 	-moz-box-shadow: 0 0 1px 1px #888;
@@ -86,6 +86,7 @@
 .linkformwrapper{
 	padding:20px;
 	margin-right:10px;
+	margin-bottom:-40px;
 }
 
 .linkform{

@@ -6,7 +6,7 @@ class NotesController < ApplicationController
   # GET /notes.json
   def index 
     @q = current_user.notes.scoped.search(params[:q])
-    @notes = @q.result(:distinct => true).paginate(:page => params[:page], :per_page => 6).order('created_at DESC')
+    @notes = @q.result(:distinct => true).paginate(:page => params[:page], :per_page => 3).order('created_at DESC')
     @user_notes = current_user.notes
     respond_to do |format|
       format.html # index.html.erb

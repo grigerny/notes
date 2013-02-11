@@ -1,7 +1,16 @@
+<div class="row-fluid">
 <div class="tagform-ajax">
+<div class="span4">
+	
 <%= form_for(@note) do |f| %>
 <div class="row-fluid">
-<%= f.text_field :tag_list, :class => "tagselect", :placeholder => "add a #tag for " "#{truncate_link(@note)} here" %> 
+<div class="tagselect">
+Tag:
+</div>	
+<%= f.text_field :tag_list, :class => "tagselect", :placeholder => "#" %> 
 <% end %>
+</div>
+
+</div>
 </div>
 </div>

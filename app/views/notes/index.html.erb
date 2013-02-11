@@ -1,19 +1,22 @@
 <%= js add_gritter(flash[:notice], :image => :notice, :title => "Pow!", :time => 4000) %>
 <%= js extend_gritter(flash[:notice], :position => :bottom_left ) %>
 
-<%= render '/shared/websitename' %>	
+
 
 <!-- Start of index page  -->
 <div class="row-fluid">	
 	<div class="span12">
 		<div class="main">
 			
+		
+			
 				<!-- Start of form to add a website	-->
 				<div class="row-fluid">
 					<%= render "form" %>	
 				</div>
 				<!-- End of form to add a website -->
-			
+				<%= render '/shared/websitename' %>	
+				<br>
 
 			<!-- Start of search bar -->
 					<div class="row-fluid">
@@ -55,34 +58,27 @@
 								<div class="row-fluid">
 								<div class="span12">
 									<div class="tagformwrapper-index">
-										<%= render "tagformindex" %>
+									
 									</div>
 								</div>
 								</div>
 								
 					<!-- End of tagform -->
+		</div>				
 								
 					<!-- Start of taglist -->
 						<div class="row-fluid">
-							
-							<div class="span6">
+							<div class="span12">
 									<div class="tagindex">
 										<%= render "shared/taglist" %>
 									</div>
 							</div>
+						</div>	
 						<!-- End of taglist -->
 			
 		
-					<!--  Start of Notepad Section-->		
-							<div class="span6">
-									<div class="sideformwrapper">
-										<%= render "sideform" %>
-									</div>	
-							</div>
-						
-					</div>	
-					<!-- End of Notepad Section -->
-		</div>	
+				
+		
 	</div>
 </div>	
 <!-- End of index page 	 -->

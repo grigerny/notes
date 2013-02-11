@@ -1,3 +1,23 @@
+	
+
+		<div class="<%= "#{@note.id}" %>">
+				<div class="notewrapper">
+					<div class="row-fluid">
+							<div class="span12">
+								
+									<div class="title-font">
+									<img src="http://g.etfv.co/<%= "#{@note.link}" %>" alt="Google" width="20" height="20" />  &nbsp 
+
+										<%= link_to @note.link, :class => "note-title-class" do %>
+										<% truncate_link(@note) %>
+										<% end %>
+
+										<div class="timeago">
+										<%= created_at_time @note %> 
+										</div>
+
+									</div>
+					
 	<center>
 	<% unless https_link @note %>	
 	<div class="imagewrapper">														
@@ -12,3 +32,15 @@
 	
 	<%= render '/shared/removeicon', :note => @note %>
 	 <%= render '/shared/previewcomment', :note => @note %>
+	
+	
+								</div>
+							</div>
+						</div>
+					</div>	
+	
+					<div class="row-fluid">
+					<div class="span6 offset1">
+					<%= render '/shared/sidebar' %>
+					</div>
+					</div>
