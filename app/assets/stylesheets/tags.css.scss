@@ -1,5 +1,8 @@
 .maintagsection{
+	display:table-cell;
 	float:left;
+	padding:20px;
+	margin-right:40px;
 }
 
 .tagindex{
@@ -43,19 +46,19 @@
 }
 
 .tag-name-left{
-	width:100%;
-	padding:20px;
-	color:black;
-	font-size:16px;
+	font-weight:bold;
+	width:99%;
+	padding:10px;
+	color:#232A39;
+	font-size:18px;
 	background-color:#EAEAEA;
 	border:1px solid #D7D7D7;
 	border-bottom:1px solid #D7D7D7;
 }
 
 .tag-link-left{
-	padding:20px;
+	padding:10px;
 	width:100%;
-	height:20px;
 	background-color:#232C3B;
 	text-align:left;
 	font-size:16px;

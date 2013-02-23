@@ -7,29 +7,44 @@
 <div class="row-fluid">	
 	<div class="span12">
 		<div class="main">
-			
-		
-			
-				<!-- Start of form to add a website	-->
-				<div class="row-fluid">
-					<%= render "form" %>	
-				</div>
-				<!-- End of form to add a website -->
-				<%= render '/shared/websitename' %>	
 				<br>
 
 			<!-- Start of search bar -->
 					<div class="row-fluid">
-							<div class="span6 offset3">
+						
+						<div class="span5">
+							<div class="logo">
+								<%= image_tag("Bookmark.gif")%>
+							</div>
+								<div class="row-fluid">   
+									<div class="login-wrapper">
+										<div class="login">
+											<%= render 'login' %>
+										</div>
+									</div> 
+						   		</div> 	   
+						</div>
+									<!-- Start of form to add a website	-->
+								
+								
+									<!-- End of form to add a website -->
+									
+								<div class="span3">
 								<div class="searchwrapper">	
 								<%= render '/shared/searchform' %>
 								</div>
-							</div>
+								</div>
+								<div class="span3">
+								<div class="add-site-form">
+								<%= render "form" %>	
+								</div>
+								</div>
 					</div>
 			<!-- End of search bar -->
-			<br>
+				<div class="notes-pagination-wrapper">	
 					
 					<!-- Starts note  -->
+					<br><br><br>
 					<div class="row-fluid">			
 							<div class="span12">
 								<div class="noterender">
@@ -53,32 +68,39 @@
 					</div>
 					<!-- End of pagination -->
 					
+					</div>
+					
 					<!-- Start of tagform -->
 					
 								<div class="row-fluid">
 								<div class="span12">
 									<div class="tagformwrapper-index">
-									
 									</div>
 								</div>
 								</div>
 								
 					<!-- End of tagform -->
-		</div>				
-								
-					<!-- Start of taglist -->
-						<div class="row-fluid">
-							<div class="span12">
-									<div class="tagindex">
-										<%= render "shared/taglist" %>
-									</div>
-							</div>
-						</div>	
-						<!-- End of taglist -->
-			
-		
 				
+	
+					<!-- Start of taglist -->
+						
+								<div class="row-fluid">
+									<div class="span12">	
+										<div class="tagindex">
+											 <div class="tagcollapse">
+											<%= render "shared/taglist" %>
+										</div>
+									</div>
+								</div>
+						</div>	
+						
+						<!-- End of taglist -->
+						
+					
+					
+					
 		
+		</div>				
 	</div>
 </div>	
 <!-- End of index page 	 -->
